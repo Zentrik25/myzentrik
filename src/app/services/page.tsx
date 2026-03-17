@@ -22,7 +22,7 @@ const serviceSchema = {
   '@type': 'ItemList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Custom Software Development', description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems built with Next.js, React, Node.js, and Supabase.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
-    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Chatbot Development', description: 'WhatsApp, Facebook Messenger, and web chatbots for customer support, bookings, and sales — 24/7.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
+    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'WhatsApp Chatbot Development', description: 'WhatsApp Business API chatbots for customer support, bookings, and sales — 24/7 automation.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
     { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'AI Agents', description: 'Autonomous AI agents for research, workflow automation, and complex business tasks powered by GPT-4, Claude, and Gemini.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
   ],
 }
@@ -44,7 +44,7 @@ const services = [
     badge: 'Software Development',
     title: 'Custom Software That Works for You',
     description:
-      'Whether you need an internal tool, a customer-facing web app, or a full SaaS platform — we design, build, and launch it. Our team uses modern frameworks like Next.js, React, Node.js, and Supabase to deliver scalable, secure products.',
+      'Whether you need an internal tool, a customer-facing web app or a full SaaS platform. We design, build and launch it. Our team uses modern frameworks like Next.js, React, Node.js and Supabase to deliver scalable & secure products.',
     features: [
       'Web Applications (Next.js, React)',
       'Mobile Apps (React Native)',
@@ -61,21 +61,21 @@ const services = [
     id: 'chatbots',
     icon: Bot,
     color: 'from-violet-500 to-purple-600',
-    badge: 'Chatbot Development',
-    title: 'Chatbots That Close Deals & Delight Customers',
+    badge: 'WhatsApp Chatbot Development',
+    title: 'WhatsApp Chatbots That Close Deals & Delight Customers',
     description:
-      'We build intelligent chatbots for WhatsApp, Facebook Messenger, Instagram, and your website. Our bots handle customer support, appointment booking, product queries, lead capture, and more — 24/7, automatically.',
+      'We build intelligent WhatsApp Business API chatbots that handle customer support, appointment booking, product queries, lead capture, and more — 24/7, automatically. Your business stays open even while you sleep.',
     features: [
       'WhatsApp Business API Chatbots',
-      'Facebook Messenger Bots',
-      'Instagram DM Automation',
-      'Web Chat Widget Integration',
-      'Multi-language Support',
+      'Automated Customer Support',
+      'Appointment & Booking Flows',
+      'Lead Capture & Qualification',
+      'Payment Confirmation Alerts',
       'Handoff to Human Agents',
       'CRM & Database Integration',
       'Analytics & Conversation Reporting',
     ],
-    cta: 'Build My Chatbot',
+    cta: 'Build My WhatsApp Chatbot',
   },
   {
     id: 'ai-agents',

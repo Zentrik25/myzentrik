@@ -47,10 +47,10 @@ const services = [
   },
   {
     icon: Bot,
-    title: 'Chatbot Development',
+    title: 'WhatsApp Chatbot Development',
     description:
-      'WhatsApp, Facebook Messenger, and web chatbots that handle customer support, bookings, sales, and more — 24/7 without lifting a finger.',
-    features: ['WhatsApp Bots', 'Facebook Messenger', 'Web Chat Widgets', 'Multi-channel'],
+      'WhatsApp Business API chatbots that handle customer support, bookings, sales, and more — 24/7 without lifting a finger.',
+    features: ['WhatsApp Business API', 'Automated Support', 'Booking Flows', 'Lead Capture'],
     color: 'from-violet-500 to-purple-600',
     href: '/services#chatbots',
   },
