@@ -12,14 +12,14 @@ const contactDetails = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@zeentriksolutions.com',
-    href: 'mailto:hello@zeentriksolutions.com',
+    value: 'info@zentriksolutions.com',
+    href: 'mailto:info@zentriksolutions.com',
   },
   {
     icon: Phone,
     label: 'WhatsApp / Phone',
-    value: '+263 77 123 4567',
-    href: 'https://wa.me/263771234567',
+    value: '+263 77 393 4610',
+    href: 'https://wa.me/263773934610',
   },
   {
     icon: MapPin,
@@ -95,7 +95,7 @@ export default function ContactPage() {
 
               {/* WhatsApp CTA */}
               <a
-                href="https://wa.me/263771234567?text=Hi%20Zentrik%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                href="https://wa.me/263773934610?text=Hi%20Zentrik%2C%20I%27d%20like%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 flex items-center justify-center gap-3 rounded-2xl bg-green-600 px-6 py-4 font-semibold text-white transition hover:bg-green-500"
