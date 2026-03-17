@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description:
     'Zentrik Solutions builds custom software, intelligent chatbots and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
-  metadataBase: new URL('https://zentriksolutions.com'),
+  metadataBase: new URL('https://www.zentriksolutions.com'),
   keywords: ['software development', 'chatbot development', 'AI agents', 'Zimbabwe', 'Zentrik Solutions'],
   openGraph: {
     type: 'website',
