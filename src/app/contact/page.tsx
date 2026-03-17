@@ -24,7 +24,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: 'Location',
-    value: 'Harare, Zimbabwe',
+    value: '6432 Chikanga 3, Mutare, Zimbabwe',
     href: null,
   },
   {
