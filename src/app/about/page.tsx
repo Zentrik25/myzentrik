@@ -7,14 +7,14 @@ import { ArrowRight, Target, Eye, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Us',
-  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software development, chatbot development, and AI agents.',
+  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software development, chatbot development and AI agents.',
 }
 
 const values = [
   {
     icon: Target,
     title: 'Precision',
-    desc: 'We don\'t ship half-baked products. Every line of code is reviewed, tested, and built to production standards.',
+    desc: 'We don\'t ship half-baked products. Every line of code is reviewed, tested and built to production standards.',
   },
   {
     icon: Eye,
@@ -32,7 +32,7 @@ const team = [
   {
     name: 'Zentrik Team',
     role: 'Engineering & AI',
-    bio: 'Our team of engineers, designers, and AI specialists has built products used by thousands of people across Africa and beyond.',
+    bio: 'Our team of engineers, designers and AI specialists has built products used by thousands of people across Africa and beyond.',
   },
 ]
 
@@ -55,7 +55,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-lg leading-relaxed text-gray-400">
             A Zimbabwe-based technology company on a mission to make world-class
-            software, AI, and automation accessible to businesses across Africa and beyond.
+            software, AI and automation accessible to businesses across Africa and beyond.
           </p>
         </div>
       </section>
@@ -74,17 +74,17 @@ export default function AboutPage() {
               <div className="space-y-4 text-gray-400 leading-relaxed">
                 <p>
                   Zentrik Solutions was founded with one belief: African businesses deserve
-                  access to the same cutting-edge technology as companies in Silicon Valley —
+                  access to the same cutting-edge technology as companies in Silicon Valley
                   without the Silicon Valley price tag.
                 </p>
                 <p>
                   We started by building custom software for local businesses in Harare.
-                  Today we develop AI agents, enterprise platforms, and intelligent chatbots
-                  for clients across Zimbabwe, South Africa, Nigeria, the UK, and the USA.
+                  Today we develop AI agents, enterprise platforms and intelligent chatbots
+                  for clients across Zimbabwe, South Africa, Nigeria, the UK and the USA.
                 </p>
                 <p>
                   Our team combines deep technical expertise with a genuine passion for
-                  solving real problems. We don&apos;t just write code — we build solutions
+                  solving real problems. We don&apos;t just write code, we build solutions
                   that make a measurable difference to your bottom line.
                 </p>
               </div>

@@ -39,22 +39,22 @@ export default function Footer() {
             </p>
             <div className="space-y-2 text-sm text-gray-400">
               <a
-                href="mailto:hello@zeentriksolutions.com"
+                href="mailto:info@zentriksolutions.com"
                 className="flex items-center gap-2 hover:text-violet-400 transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                hello@zeentriksolutions.com
+                info@zentriksolutions.com
               </a>
               <a
-                href="tel:+263771234567"
+                href="tel:+263773934610"
                 className="flex items-center gap-2 hover:text-violet-400 transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                +263 77 123 4567
+                +263 77 393 4610
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                Harare, Zimbabwe
+                6432 Chikanga 3, Mutare, Zimbabwe
               </div>
             </div>
           </div>
