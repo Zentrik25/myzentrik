@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     description: 'Custom software, intelligent chatbots, and AI agents for modern businesses.',
   },
   twitter: { card: 'summary_large_image' },
+  other: {
+    'facebook-domain-verification': 'gaxwr7v7lytyzf884nrvqg9dh38jcv',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
