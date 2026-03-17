@@ -6,8 +6,24 @@ import { Badge } from '@/components/ui/badge'
 import { ArrowRight, Target, Eye, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Us',
-  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software development, chatbot development and AI agents.',
+  title: 'About Zentrik Solutions — Zimbabwe Software & AI Company',
+  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software, chatbot development, and AI agents — serving clients across Africa, the UK, and USA.',
+  alternates: { canonical: 'https://www.zentriksolutions.com/about' },
+  openGraph: {
+    title: 'About Zentrik Solutions — Zimbabwe-Based Software & AI Company',
+    description: 'Born in Zimbabwe, built for the world. We build custom software, chatbots, and AI agents for businesses across Africa and globally.',
+    url: 'https://www.zentriksolutions.com/about',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://www.zentriksolutions.com/about' },
+  ],
 }
 
 const values = [
@@ -39,6 +55,7 @@ const team = [
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />

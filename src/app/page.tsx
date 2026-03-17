@@ -1,4 +1,32 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://www.zentriksolutions.com' },
+  openGraph: {
+    title: 'Zentrik Solutions — Software, Chatbots & AI Agents',
+    description: 'Zentrik Solutions builds custom software, intelligent chatbots, and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
+    url: 'https://www.zentriksolutions.com',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Zentrik Solutions' }],
+  },
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Zentrik Solutions',
+  url: 'https://www.zentriksolutions.com',
+  logo: 'https://www.zentriksolutions.com/og-image.png',
+  description: 'Zimbabwe-based software company specialising in custom software development, chatbot development, and AI agents.',
+  address: { '@type': 'PostalAddress', streetAddress: '6432 Chikanga 3', addressLocality: 'Mutare', addressCountry: 'ZW' },
+  telephone: '+263773934610',
+  email: 'info@zentriksolutions.com',
+  review: [
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Chidi Okafor' }, reviewBody: 'Zentrik built our entire e-commerce platform in 6 weeks. Quality was exceptional, delivered on time. Sales doubled within a month.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Amara Dube' }, reviewBody: 'Their WhatsApp chatbot handles 200+ patient enquiries daily. We saved $3,000/month on support costs.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Michael Torres' }, reviewBody: 'The AI agent they built for our logistics routing cut manual dispatch time by 70%. Best tech investment we have made in years.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
+  ],
+}
 import { buttonVariants } from '@/lib/button-variants'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
@@ -82,6 +110,7 @@ const whyUs = [
 export default function HomePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Grid background */}

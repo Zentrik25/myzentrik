@@ -15,14 +15,19 @@ export const metadata: Metadata = {
   description:
     'Zentrik Solutions builds custom software, intelligent chatbots and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
   metadataBase: new URL('https://www.zentriksolutions.com'),
-  keywords: ['software development', 'chatbot development', 'AI agents', 'Zimbabwe', 'Zentrik Solutions'],
   openGraph: {
     type: 'website',
     siteName: 'Zentrik Solutions',
     title: 'Zentrik Solutions — Software, Chatbots & AI Agents',
-    description: 'Custom software, intelligent chatbots, and AI agents for modern businesses.',
+    description: 'Zentrik Solutions builds custom software, intelligent chatbots, and AI agents that automate and grow your business. Based in Zimbabwe, serving clients globally.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Zentrik Solutions — Software, Chatbots & AI Agents' }],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zentrik Solutions — Software, Chatbots & AI Agents',
+    description: 'Custom software, chatbots & AI agents — built in Zimbabwe, serving globally.',
+    images: ['/og-image.png'],
+  },
   other: {
     'facebook-domain-verification': 'gaxwr7v7lytyzf884nrvqg9dh38jcv',
   },

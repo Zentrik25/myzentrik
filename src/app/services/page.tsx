@@ -6,8 +6,34 @@ import { Badge } from '@/components/ui/badge'
 import { CheckCircle2, ArrowRight, Code2, Bot, Brain } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'Custom software development, chatbot development, and AI agents — built by Zentrik Solutions for businesses across Africa and beyond.',
+  title: 'Software, Chatbot & AI Agent Development Services',
+  description: 'Custom software development, WhatsApp chatbots, and AI agents built by Zentrik Solutions for businesses across Africa and beyond. Free quote in 24 hours.',
+  alternates: { canonical: 'https://www.zentriksolutions.com/services' },
+  openGraph: {
+    title: 'Software, Chatbot & AI Agent Services — Zentrik Solutions',
+    description: 'Custom software, WhatsApp chatbots, and AI agents for African businesses. Enterprise-grade quality at accessible prices.',
+    url: 'https://www.zentriksolutions.com/services',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Custom Software Development', description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems built with Next.js, React, Node.js, and Supabase.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
+    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'Chatbot Development', description: 'WhatsApp, Facebook Messenger, and web chatbots for customer support, bookings, and sales — 24/7.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
+    { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'AI Agents', description: 'Autonomous AI agents for research, workflow automation, and complex business tasks powered by GPT-4, Claude, and Gemini.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
+  ],
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.zentriksolutions.com/services' },
+  ],
 }
 
 const services = [
@@ -76,6 +102,8 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />

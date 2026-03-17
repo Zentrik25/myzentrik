@@ -6,9 +6,36 @@ import { cn } from '@/lib/utils'
 import { CheckCircle2, XCircle, ArrowRight, Zap, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Pricing',
-  description:
-    'Transparent, fixed pricing for custom software, WhatsApp chatbots, and AI agents. No hidden fees. Free quote within 24 hours.',
+  title: 'Software & AI Agent Pricing — Zentrik Solutions Zimbabwe',
+  description: 'Transparent, fixed pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees. Free quote within 24 hours.',
+  alternates: { canonical: 'https://www.zentriksolutions.com/pricing' },
+  openGraph: {
+    title: 'Pricing — Custom Software, Chatbots & AI Agents | Zentrik Solutions',
+    description: 'Fixed, transparent pricing for custom software, WhatsApp chatbots, and AI agents. Starter $150 · Professional $500 · Enterprise from $1,500.',
+    url: 'https://www.zentriksolutions.com/pricing',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'How do I pay?', acceptedAnswer: { '@type': 'Answer', text: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' } },
+    { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' } },
+    { '@type': 'Question', name: 'Do you offer payment plans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' } },
+    { '@type': 'Question', name: 'What if I need something not listed here?', acceptedAnswer: { '@type': 'Answer', text: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours — no obligation.' } },
+    { '@type': 'Question', name: 'Do you work with clients outside Zimbabwe?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' } },
+  ],
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.zentriksolutions.com/pricing' },
+  ],
 }
 
 const plans = [
@@ -118,6 +145,8 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* ── Hero ──────────────────────────────────────────── */}
       <section className="relative overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />

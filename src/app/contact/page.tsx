@@ -4,8 +4,24 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch with Zentrik Solutions. Free quotes on custom software, chatbot, and AI agent projects.',
+  title: 'Contact Zentrik Solutions — Get a Free Project Quote',
+  description: 'Get a free quote from Zentrik Solutions for custom software, WhatsApp chatbots, and AI agents. Based in Zimbabwe, serving globally. We respond within 24 hours.',
+  alternates: { canonical: 'https://www.zentriksolutions.com/contact' },
+  openGraph: {
+    title: 'Contact Zentrik Solutions — Free Software & AI Quote',
+    description: 'Get a free quote within 24 hours for custom software, WhatsApp chatbots, and AI agents. WhatsApp us at +263773934610.',
+    url: 'https://www.zentriksolutions.com/contact',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.zentriksolutions.com/contact' },
+  ],
 }
 
 const contactDetails = [
@@ -38,6 +54,7 @@ const contactDetails = [
 export default function ContactPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-16">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />
@@ -47,7 +64,7 @@ export default function ContactPage() {
             Get In Touch
           </Badge>
           <h1 className="mb-4 text-5xl font-black text-white sm:text-6xl">
-            Let&apos;s Talk
+            Contact Zentrik Solutions
           </h1>
           <p className="text-lg text-gray-400">
             Tell us about your project and we&apos;ll send you a free quote within 24 hours.
