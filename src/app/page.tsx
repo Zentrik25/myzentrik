@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'Zentrik Solutions — Software, Chatbots & AI Agents',
     description: 'Zentrik Solutions builds custom software, intelligent chatbots, and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
     url: 'https://www.zentriksolutions.com',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Zentrik Solutions' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions' }],
   },
 }
 
@@ -291,105 +291,47 @@ export default function HomePage() {
               </Badge>
               <h2 className="text-4xl font-black text-white sm:text-5xl">Our Work</h2>
               <p className="mt-3 max-w-xl text-gray-400">
-                Real projects, live in production, built for real clients.
+                Real projects, live in production, built for real clients across Zimbabwe.
               </p>
             </div>
-            <Link
-              href="/work"
-              className="hidden items-center gap-1 text-sm font-semibold text-violet-400 hover:text-violet-300 sm:flex"
-            >
+            <Link href="/work" className="hidden items-center gap-1 text-sm font-semibold text-violet-400 hover:text-violet-300 sm:flex">
               View all projects <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
-          {/* Featured project — The Granite Post */}
-          <div className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 transition-all hover:border-violet-500/30 hover:bg-white/[0.07]">
-            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 blur-3xl transition-opacity group-hover:opacity-10" />
-
-            <div className="relative grid gap-8 lg:grid-cols-2 lg:items-center">
-              {/* Info */}
-              <div>
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
-                    <Globe className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <h3 className="text-xl font-black text-white">The Granite Post</h3>
-                      <span className="rounded-full bg-green-500/20 px-2.5 py-0.5 text-xs font-semibold text-green-400">
-                        ● Live
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-500">News Platform · Zimbabwe</p>
-                  </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', color: 'from-blue-500 to-cyan-500', emoji: '📰' },
+              { name: 'Zim News Online', url: 'https://www.zimnewsonline.com', display: 'zimnewsonline.com', cat: 'News Portal', color: 'from-green-500 to-emerald-600', emoji: '🌍' },
+              { name: 'PrintZone', url: 'https://www.printzone.co.zw', display: 'printzone.co.zw', cat: 'E-Commerce', color: 'from-orange-500 to-red-500', emoji: '🖨️' },
+              { name: 'Molly — WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', color: 'from-violet-500 to-purple-600', emoji: '🤖' },
+            ].map((p) => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-violet-500/30 hover:bg-white/[0.08]"
+              >
+                <div className={`absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br ${p.color} opacity-0 blur-2xl transition-opacity group-hover:opacity-20`} />
+                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${p.color} text-2xl`}>
+                  {p.emoji}
                 </div>
-
-                <p className="mb-5 text-gray-400 leading-relaxed">
-                  A modern, BBC-style online news platform for Zimbabwe — built with a full CMS,
-                  SEO-optimised article pages, and a responsive design that loads fast on any connection.
+                <div className="mb-1 flex items-center gap-2">
+                  <h3 className="font-bold text-white">{p.name}</h3>
+                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                </div>
+                <p className="mb-3 text-xs text-gray-500">{p.cat}</p>
+                <p className="flex items-center gap-1 text-xs text-violet-400 group-hover:gap-2 transition-all">
+                  {p.display} <ArrowUpRight className="h-3 w-3" />
                 </p>
-
-                <ul className="mb-6 space-y-2">
-                  {['Full CMS with article publishing workflow', 'SEO with JSON-LD NewsArticle schema', 'Mobile-first, fast on Zimbabwe networks', 'RSS feed + XML sitemap for Google News'].map((h) => (
-                    <li key={h} className="flex items-center gap-2 text-sm text-gray-300">
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-violet-400" />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {['Next.js', 'Supabase', 'Tailwind CSS', 'Vercel'].map((tag) => (
-                    <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-400">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="https://www.thegranite.co.zw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(buttonVariants(), 'inline-flex items-center gap-2 bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:from-violet-500 hover:to-blue-500')}
-                >
-                  Visit thegranite.co.zw <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </div>
-
-              {/* Browser preview */}
-              <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a12] shadow-2xl">
-                <div className="flex items-center gap-2 border-b border-white/10 bg-white/5 px-4 py-3">
-                  <div className="flex gap-1.5">
-                    <div className="h-3 w-3 rounded-full bg-red-500/60" />
-                    <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
-                    <div className="h-3 w-3 rounded-full bg-green-500/60" />
-                  </div>
-                  <div className="flex-1 rounded-md bg-white/5 px-3 py-1 text-center text-xs text-gray-500">
-                    thegranite.co.zw
-                  </div>
-                </div>
-                <div className="relative h-56 w-full overflow-hidden">
-                  <iframe
-                    src="https://www.thegranite.co.zw"
-                    className="h-[560px] w-[200%] origin-top-left scale-50 border-0"
-                    title="The Granite Post preview"
-                    loading="lazy"
-                    sandbox="allow-scripts allow-same-origin"
-                  />
-                  <a
-                    href="https://www.thegranite.co.zw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 bg-gradient-to-t from-[#0a0a12]/70 via-transparent to-transparent"
-                  />
-                </div>
-              </div>
-            </div>
+              </a>
+            ))}
           </div>
 
-          <div className="mt-6 text-center sm:hidden">
-            <Link href="/work" className="text-sm font-semibold text-violet-400 hover:text-violet-300">
-              View all projects →
+          <div className="mt-8 text-center">
+            <Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-gray-300 hover:border-violet-500/30 hover:text-white transition-all">
+              View full case studies <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
