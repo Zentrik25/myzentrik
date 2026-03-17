@@ -35,7 +35,7 @@ export default function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone || 'Not provided'}\nService: ${values.service}\nBudget: ${values.budget}\n\nMessage:\n${values.message}`
     )
-    window.location.href = `mailto:hello@zeentriksolutions.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:info@zentriksolutions.com?subject=${subject}&body=${body}`
     toast.success('Opening your email client...')
     setSent(true)
     reset()

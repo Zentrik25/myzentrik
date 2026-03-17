@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = 'March 17, 2026'
 const COMPANY = 'Zentrik Solutions'
-const EMAIL = 'hello@zeentriksolutions.com'
-const SITE = 'https://zeentriksolutions.vercel.app'
+const EMAIL = 'info@zentriksolutions.com'
+const SITE = 'https://zentriksolutions.com'
 
 export default function PrivacyPolicyPage() {
   return (

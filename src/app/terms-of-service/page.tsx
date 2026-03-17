@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = 'March 17, 2026'
 const COMPANY = 'Zentrik Solutions'
-const EMAIL = 'hello@zeentriksolutions.com'
+const EMAIL = 'info@zentriksolutions.com'
 
 export default function TermsPage() {
   return (

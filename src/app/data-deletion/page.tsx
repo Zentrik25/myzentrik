@@ -56,10 +56,10 @@ export default function DataDeletionPage() {
               <p className="text-sm text-gray-400">
                 Email us at{' '}
                 <a
-                  href="mailto:hello@zeentriksolutions.com?subject=Data%20Deletion%20Request&body=Please%20delete%20all%20personal%20data%20associated%20with%20this%20email%20address%20and%20any%20linked%20Facebook%2FMeta%20accounts."
+                  href="mailto:info@zentriksolutions.com?subject=Data%20Deletion%20Request&body=Please%20delete%20all%20personal%20data%20associated%20with%20this%20email%20address%20and%20any%20linked%20Facebook%2FMeta%20accounts."
                   className="text-violet-400 hover:underline"
                 >
-                  hello@zeentriksolutions.com
+                  info@zentriksolutions.com
                 </a>{' '}
                 with the subject line: <strong className="text-gray-300">&quot;Data Deletion Request&quot;</strong>
               </p>
@@ -94,7 +94,7 @@ export default function DataDeletionPage() {
         </div>
 
         <a
-          href="mailto:hello@zeentriksolutions.com?subject=Data%20Deletion%20Request&body=Please%20delete%20all%20personal%20data%20associated%20with%20this%20email%20address%20and%20any%20linked%20Facebook%2FMeta%20accounts.%0A%0AMy%20name%3A%20%0AMy%20email%3A%20%0AFacebook%20profile%20(if%20applicable)%3A"
+          href="mailto:info@zentriksolutions.com?subject=Data%20Deletion%20Request&body=Please%20delete%20all%20personal%20data%20associated%20with%20this%20email%20address%20and%20any%20linked%20Facebook%2FMeta%20accounts.%0A%0AMy%20name%3A%20%0AMy%20email%3A%20%0AFacebook%20profile%20(if%20applicable)%3A"
           className="mt-8 flex items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-4 font-semibold text-white transition hover:bg-red-500"
         >
           <Mail className="h-5 w-5" />
