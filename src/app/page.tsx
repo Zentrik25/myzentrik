@@ -1,65 +1,319 @@
-import Image from "next/image";
+import Link from 'next/link'
+import { buttonVariants } from '@/lib/button-variants'
+import { Badge } from '@/components/ui/badge'
+import { cn } from '@/lib/utils'
+import {
+  ArrowRight, Code2, Bot, Brain, CheckCircle2, Zap,
+  Globe, Shield, Clock, Users, ChevronRight, Star
+} from 'lucide-react'
 
-export default function Home() {
+const services = [
+  {
+    icon: Code2,
+    title: 'Custom Software Development',
+    description:
+      'Web apps, mobile apps, SaaS platforms, and enterprise systems — built to scale with your business. Modern stack, clean code, zero compromise.',
+    features: ['Web & Mobile Apps', 'SaaS Platforms', 'API Development', 'Cloud Deployment'],
+    color: 'from-blue-500 to-cyan-500',
+    href: '/services#software',
+  },
+  {
+    icon: Bot,
+    title: 'Chatbot Development',
+    description:
+      'WhatsApp, Facebook Messenger, and web chatbots that handle customer support, bookings, sales, and more — 24/7 without lifting a finger.',
+    features: ['WhatsApp Bots', 'Facebook Messenger', 'Web Chat Widgets', 'Multi-channel'],
+    color: 'from-violet-500 to-purple-600',
+    href: '/services#chatbots',
+  },
+  {
+    icon: Brain,
+    title: 'AI Agents',
+    description:
+      'Autonomous AI agents that think, plan, and execute tasks. From research assistants to fully automated business workflows — powered by the latest LLMs.',
+    features: ['Autonomous Agents', 'Workflow Automation', 'LLM Integration', 'Custom AI Tools'],
+    color: 'from-orange-500 to-pink-600',
+    href: '/services#ai-agents',
+  },
+]
+
+const stats = [
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '98%', label: 'Client Satisfaction' },
+  { value: '24/7', label: 'Support Available' },
+  { value: '5+', label: 'Years Experience' },
+]
+
+const process = [
+  { step: '01', title: 'Discovery Call', desc: 'We learn about your business, goals, and technical needs in a free 30-minute call.' },
+  { step: '02', title: 'Proposal & Plan', desc: 'We send a detailed proposal, timeline, and fixed-price quote within 48 hours.' },
+  { step: '03', title: 'Build & Iterate', desc: 'Weekly demos, daily updates. You see progress every step of the way.' },
+  { step: '04', title: 'Launch & Support', desc: 'We deploy, monitor, and support your product after go-live. Always available.' },
+]
+
+const testimonials = [
+  {
+    name: 'Chidi Okafor',
+    role: 'CEO, RetailMax NG',
+    body: 'Zentrik built our entire e-commerce platform in 6 weeks. The quality was exceptional and they delivered on time. Our sales doubled within a month of launch.',
+    stars: 5,
+  },
+  {
+    name: 'Amara Dube',
+    role: 'Founder, QuickCare Zimbabwe',
+    body: 'Their WhatsApp chatbot handles 200+ patient enquiries daily. We saved $3,000/month on support costs and our patients love the instant responses.',
+    stars: 5,
+  },
+  {
+    name: 'Michael Torres',
+    role: 'CTO, LogiFlow Africa',
+    body: 'The AI agent they built for our logistics routing cut manual dispatch time by 70%. Best tech investment we have made in years.',
+    stars: 5,
+  },
+]
+
+const whyUs = [
+  { icon: Zap, title: 'Fast Delivery', desc: 'MVPs in weeks, not months. We move fast without breaking quality.' },
+  { icon: Globe, title: 'Global Standards', desc: 'Enterprise-grade code and architecture, priced for African businesses.' },
+  { icon: Shield, title: 'Secure by Default', desc: 'Security best practices baked into every project from day one.' },
+  { icon: Clock, title: '24/7 Support', desc: 'We\'re in your timezone and available when you need us most.' },
+]
+
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      {/* ── Hero ──────────────────────────────────────────────────── */}
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Grid background */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />
+        {/* Glow */}
+        <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
+        <div className="absolute right-0 top-1/2 h-[400px] w-[400px] rounded-full bg-blue-600/15 blur-[100px]" />
+
+        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+          <Badge
+            variant="outline"
+            className="mb-6 border-violet-500/40 bg-violet-500/10 text-violet-300 hover:bg-violet-500/10"
+          >
+            <Zap className="mr-1.5 h-3 w-3" />
+            Zimbabwe&apos;s Leading AI & Software Studio
+          </Badge>
+
+          <h1 className="mb-6 text-5xl font-black leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
+            We Build{' '}
+            <span className="bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
+              Software
+            </span>
+            ,<br />
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Chatbots
+            </span>{' '}
+            &{' '}
+            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+              AI Agents
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
+            Zentrik Solutions turns your business ideas into powerful digital products.
+            Custom software, intelligent chatbots, and autonomous AI agents — built
+            fast, built to last.
           </p>
+
+          <div className="flex flex-col items-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ size: 'lg' }), 'h-12 bg-gradient-to-r from-violet-600 to-blue-600 px-8 text-base font-semibold text-white hover:from-violet-500 hover:to-blue-500')}
+            >
+              Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+            <Link
+              href="/services"
+              className={cn(buttonVariants({ size: 'lg', variant: 'outline' }), 'h-12 border-white/20 bg-white/5 px-8 text-base text-white hover:bg-white/10')}
+            >
+              View Our Services
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4">
+            {stats.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-3xl font-black text-white">{s.value}</p>
+                <p className="mt-1 text-sm text-gray-400">{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── Services ───────────────────────────────────────────────── */}
+      <section id="services" className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
+              What We Do
+            </Badge>
+            <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl">
+              Our Services
+            </h2>
+            <p className="mx-auto max-w-2xl text-gray-400">
+              Three powerful service lines, one mission: make your business faster, smarter, and more profitable.
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {services.map((svc) => (
+              <Link
+                key={svc.title}
+                href={svc.href}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 transition-all hover:border-violet-500/40 hover:bg-white/8"
+              >
+                {/* Icon */}
+                <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${svc.color}`}>
+                  <svc.icon className="h-7 w-7 text-white" />
+                </div>
+
+                <h3 className="mb-3 text-xl font-bold text-white">{svc.title}</h3>
+                <p className="mb-6 text-sm leading-relaxed text-gray-400">{svc.description}</p>
+
+                <ul className="mb-6 space-y-2">
+                  {svc.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
+                      <CheckCircle2 className="h-4 w-4 text-violet-400" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <span className="flex items-center gap-1 text-sm font-semibold text-violet-400 group-hover:gap-2 transition-all">
+                  Learn more <ChevronRight className="h-4 w-4" />
+                </span>
+
+                {/* Hover glow */}
+                <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${svc.color} opacity-0 blur-2xl transition-opacity group-hover:opacity-20`} />
+              </Link>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* ── Why Us ─────────────────────────────────────────────────── */}
+      <section className="py-24 border-y border-white/10 bg-white/[0.02]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
+              Why Zentrik
+            </Badge>
+            <h2 className="text-4xl font-black text-white sm:text-5xl">
+              Built Different
+            </h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {whyUs.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10">
+                  <item.icon className="h-6 w-6 text-violet-400" />
+                </div>
+                <h3 className="mb-2 font-bold text-white">{item.title}</h3>
+                <p className="text-sm text-gray-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Process ────────────────────────────────────────────────── */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
+              How We Work
+            </Badge>
+            <h2 className="text-4xl font-black text-white sm:text-5xl">Our Process</h2>
+            <p className="mx-auto mt-4 max-w-xl text-gray-400">
+              From idea to live product — transparent, fast, and stress-free.
+            </p>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {process.map((p, i) => (
+              <div key={p.step} className="relative">
+                {i < process.length - 1 && (
+                  <div className="absolute left-full top-8 hidden h-px w-full bg-gradient-to-r from-violet-500/50 to-transparent lg:block" />
+                )}
+                <div className="mb-4 text-4xl font-black text-violet-500/30">{p.step}</div>
+                <h3 className="mb-2 font-bold text-white">{p.title}</h3>
+                <p className="text-sm text-gray-400">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials ───────────────────────────────────────────── */}
+      <section className="py-24 border-y border-white/10 bg-white/[0.02]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
+              Client Stories
+            </Badge>
+            <h2 className="text-4xl font-black text-white sm:text-5xl">
+              What Our Clients Say
+            </h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="rounded-2xl border border-white/10 bg-white/5 p-8"
+              >
+                <div className="mb-4 flex gap-1">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="mb-6 text-sm leading-relaxed text-gray-300">
+                  &ldquo;{t.body}&rdquo;
+                </p>
+                <div>
+                  <p className="font-semibold text-white">{t.name}</p>
+                  <p className="text-xs text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ────────────────────────────────────────────────────── */}
+      <section className="py-24">
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-violet-500/30 bg-gradient-to-br from-violet-600/20 to-blue-600/20 px-8 py-16">
+            {/* Glow */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-64 w-64 rounded-full bg-violet-600/30 blur-[80px]" />
+            </div>
+            <div className="relative">
+              <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl">
+                Ready to Build Something Amazing?
+              </h2>
+              <p className="mb-8 text-lg text-gray-300">
+                Tell us about your project. We&apos;ll get back to you with a free
+                quote within 24 hours.
+              </p>
+              <Link
+                href="/contact"
+                className={cn(buttonVariants({ size: 'lg' }), 'h-14 bg-gradient-to-r from-violet-600 to-blue-600 px-10 text-lg font-semibold text-white hover:from-violet-500 hover:to-blue-500')}
+              >
+                Get Your Free Quote <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
