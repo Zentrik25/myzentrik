@@ -29,7 +29,7 @@ export default function ContactForm() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) })
 
   async function onSubmit(values: FormValues) {
-    const subject = encodeURIComponent(`New Project Enquiry — ${values.service} from ${values.name}`)
+    const subject = encodeURIComponent(`New Project Enquiry: ${values.service} from ${values.name}`)
     const body = encodeURIComponent(
       `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone || 'Not provided'}\nService: ${values.service}\nBudget: ${values.budget}\n\nMessage:\n${values.message}`
     )
@@ -180,7 +180,7 @@ export default function ContactForm() {
           cursor: isSubmitting ? 'not-allowed' : 'pointer',
         }}
       >
-        {isSubmitting ? 'Sending...' : 'Send Message — Get Free Quote'}
+        {isSubmitting ? 'Sending...' : 'Send Message and Get Free Quote'}
       </button>
 
       <p className="text-center text-xs" style={{ color: 'rgba(0,0,0,0.4)' }}>

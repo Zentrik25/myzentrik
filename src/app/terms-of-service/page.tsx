@@ -67,7 +67,7 @@ export default function TermsPage() {
             into your project, subject to their respective open-source licences.
           </p>
           <p className="mt-3">
-            All content on this website — including text, logos, and design — is the property
+            All content on this website (including text, logos, and design) is the property
             of {COMPANY} and may not be used without written permission.
           </p>
         </section>

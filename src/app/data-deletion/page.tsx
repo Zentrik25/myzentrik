@@ -79,7 +79,7 @@ export default function DataDeletionPage() {
             {
               n: '3',
               title: 'We confirm deletion',
-              body: 'We will process your request and send you a confirmation email once all your data has been permanently deleted from our systems — within 30 days.',
+              body: 'We will process your request and send you a confirmation email once all your data has been permanently deleted from our systems, within 30 days.',
             },
           ].map((step) => (
             <div key={step.n} className="flex items-start gap-4">

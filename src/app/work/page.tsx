@@ -4,14 +4,14 @@ import { ArrowUpRight, Globe, Bot, Printer, Newspaper } from 'lucide-react'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Our Work — Projects Built by Zentrik Solutions',
+  title: 'Our Work: Projects Built by Zentrik Solutions',
   description: 'See the real websites, chatbots, and AI tools built by Zentrik Solutions for clients across Zimbabwe and Africa.',
   alternates: { canonical: 'https://www.zentriksolutions.com/work' },
   openGraph: {
-    title: 'Our Work — Projects Built by Zentrik Solutions',
+    title: 'Our Work: Projects Built by Zentrik Solutions',
     description: 'Real projects. Real results. See what Zentrik Solutions has built for clients across Zimbabwe and Africa.',
     url: 'https://www.zentriksolutions.com/work',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions — Our Work' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions: Our Work' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -75,17 +75,17 @@ const projects = [
     status: 'Live',
   },
   {
-    name: 'Molly — WhatsApp AI Chatbot',
+    name: 'Molly WhatsApp AI Chatbot',
     url: 'https://wa.me/263712482084',
     displayUrl: '+263 712 482 084',
     category: 'WhatsApp Chatbot · AI Agent',
     type: 'chatbot',
     tags: ['WhatsApp Business API', 'AI', 'Node.js', 'Automation'],
     description:
-      'Molly is a fully autonomous WhatsApp AI chatbot built by Zentrik Solutions. She handles customer enquiries, bookings, FAQs, and lead capture — 24 hours a day, 7 days a week, with no human intervention needed.',
+      'Molly is a fully autonomous WhatsApp AI chatbot built by Zentrik Solutions. She handles customer enquiries, bookings, FAQs, and lead capture. 24 hours a day, 7 days a week, with no human intervention needed.',
     highlights: [
       '24/7 automated customer support on WhatsApp',
-      'Natural language understanding — no rigid menus',
+      'Natural language understanding, no rigid menus',
       'Handles bookings, FAQs, and lead capture',
       'Seamless handoff to human agent when needed',
     ],
@@ -159,7 +159,7 @@ export default function WorkPage() {
                 }}
               >
                 <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-                  {/* Left — info */}
+                  {/* Left: info */}
                   <div>
                     <div className="mb-5 flex flex-wrap items-center gap-3">
                       <div
@@ -233,7 +233,7 @@ export default function WorkPage() {
                     </a>
                   </div>
 
-                  {/* Right — preview */}
+                  {/* Right: preview */}
                   <div
                     className="overflow-hidden rounded-xl shadow-2xl"
                     style={{ background: i % 2 === 0 ? '#000000' : '#1c1c1e' }}
@@ -269,7 +269,7 @@ export default function WorkPage() {
                           <div className="flex gap-2">
                             <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white" style={{ background: '#0071e3' }}>M</div>
                             <div className="max-w-[75%] rounded-2xl rounded-tl-none px-4 py-2.5 text-sm" style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.9)' }}>
-                              Great! 🚀 I&apos;ll connect you with our team. What type of site — business, e-commerce, or news?
+                              Great! 🚀 I&apos;ll connect you with our team. What type of site: business, e-commerce, or news?
                             </div>
                           </div>
                         </div>

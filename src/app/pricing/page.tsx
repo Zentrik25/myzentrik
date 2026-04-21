@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { CheckCircle2, XCircle, ArrowRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Software & AI Agent Pricing — Zentrik Solutions Zimbabwe',
+  title: 'Software & AI Agent Pricing: Zentrik Solutions Zimbabwe',
   description: 'Transparent, fixed pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees. Free quote within 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/pricing' },
   openGraph: {
-    title: 'Pricing — Custom Software, Chatbots & AI Agents | Zentrik Solutions',
+    title: 'Pricing: Custom Software, Chatbots & AI Agents | Zentrik Solutions',
     description: 'Fixed, transparent pricing for custom software, WhatsApp chatbots, and AI agents. Starter $150 · Professional $500 · Enterprise from $1,500.',
     url: 'https://www.zentriksolutions.com/pricing',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -21,7 +21,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'How do I pay?', acceptedAnswer: { '@type': 'Answer', text: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' } },
     { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' } },
     { '@type': 'Question', name: 'Do you offer payment plans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' } },
-    { '@type': 'Question', name: 'What if I need something not listed here?', acceptedAnswer: { '@type': 'Answer', text: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours — no obligation.' } },
+    { '@type': 'Question', name: 'What if I need something not listed here?', acceptedAnswer: { '@type': 'Answer', text: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours.no obligation.' } },
     { '@type': 'Question', name: 'Do you work with clients outside Zimbabwe?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' } },
   ],
 }
@@ -106,7 +106,7 @@ const faqs = [
   { q: 'How do I pay?', a: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' },
   { q: 'How long does a project take?', a: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' },
   { q: 'Do you offer payment plans?', a: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' },
-  { q: 'What if I need something not listed here?', a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours — no obligation.' },
+  { q: 'What if I need something not listed here?', a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours.no obligation.' },
   { q: 'Do you work with clients outside Zimbabwe?', a: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' },
 ]
 
@@ -287,7 +287,7 @@ export default function PricingPage() {
             Not sure which plan fits?
           </h2>
           <p className="mb-8 text-[17px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            WhatsApp us right now. We will give you an honest recommendation and a free quote — no strings attached.
+            WhatsApp us right now. We will give you an honest recommendation and a free quote.no strings attached.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a

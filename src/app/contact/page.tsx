@@ -3,11 +3,11 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact Zentrik Solutions — Get a Free Project Quote',
+  title: 'Contact Zentrik Solutions: Get a Free Project Quote',
   description: 'Get a free quote from Zentrik Solutions for custom software, WhatsApp chatbots, and AI agents. Based in Zimbabwe, serving globally. We respond within 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/contact' },
   openGraph: {
-    title: 'Contact Zentrik Solutions — Free Software & AI Quote',
+    title: 'Contact Zentrik Solutions: Free Software & AI Quote',
     description: 'Get a free quote within 24 hours for custom software, WhatsApp chatbots, and AI agents. WhatsApp us at +263773934610.',
     url: 'https://www.zentriksolutions.com/contact',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],

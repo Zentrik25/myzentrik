@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Zentrik Solutions — how we collect, use, and protect your personal data.',
+  description: 'Privacy Policy for Zentrik Solutions: how we collect, use, and protect your personal data.',
 }
 
 const LAST_UPDATED = 'March 17, 2026'
@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
           <p>
             Our website uses essential cookies to function properly. We may also use
             analytics tools (such as Vercel Analytics) to understand how visitors use our
-            site. This data is anonymised and aggregated — it cannot be used to identify you personally.
+            site. This data is anonymised and aggregated; it cannot be used to identify you personally.
           </p>
           <p className="mt-3">
             You can disable cookies in your browser settings. Note that some website

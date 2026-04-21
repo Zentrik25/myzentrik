@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, G
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.zentriksolutions.com' },
   openGraph: {
-    title: 'Zentrik Solutions — Software, Chatbots & AI Agents',
+    title: 'Zentrik Solutions: Software, Chatbots & AI Agents',
     description: 'Zentrik Solutions builds custom software, intelligent chatbots, and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
     url: 'https://www.zentriksolutions.com',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions' }],
@@ -33,21 +33,21 @@ const services = [
   {
     icon: Code2,
     title: 'Custom Software',
-    description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems — built to scale with your business.',
+    description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems built to scale with your business.',
     features: ['Web & Mobile Apps', 'SaaS Platforms', 'API Development', 'Cloud Deployment'],
     href: '/services#software',
   },
   {
     icon: Bot,
     title: 'WhatsApp Chatbots',
-    description: 'WhatsApp Business API chatbots that handle customer support, bookings, and sales — 24/7 automatically.',
+    description: 'WhatsApp Business API chatbots that handle customer support, bookings, and sales. 24/7, automatically.',
     features: ['WhatsApp Business API', 'Automated Support', 'Booking Flows', 'Lead Capture'],
     href: '/services#chatbots',
   },
   {
     icon: Brain,
     title: 'AI Agents',
-    description: 'Autonomous AI agents that think, plan, and execute tasks — powered by the latest LLMs.',
+    description: 'Autonomous AI agents that think, plan, and execute tasks, powered by the latest LLMs.',
     features: ['Autonomous Agents', 'Workflow Automation', 'LLM Integration', 'Custom AI Tools'],
     href: '/services#ai-agents',
   },
@@ -114,9 +114,9 @@ export default function HomePage() {
           </h1>
           <p
             className="mx-auto mb-10 text-white/70"
-            style={{ fontSize: '21px', lineHeight: 1.19, letterSpacing: '0.231px', maxWidth: '600px' }}
+            style={{ fontSize: '21px', lineHeight: 1.19, letterSpacing: '0.231px', maxWidth: '560px' }}
           >
-            We build the WhatsApp chatbots, custom software and AI agents that let Zimbabwean businesses handle 10x more customers without hiring 10x more staff.
+            WhatsApp chatbots, custom software and AI agents that handle 10x more customers without 10x more staff.
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link href="/contact" className="apple-btn-primary">
@@ -240,7 +240,7 @@ export default function HomePage() {
               Our Process
             </h2>
             <p className="mt-4 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)' }}>
-              From idea to live product — transparent, fast, and stress-free.
+              From idea to live product. Transparent, fast, and stress-free.
             </p>
           </div>
 
@@ -291,7 +291,7 @@ export default function HomePage() {
               { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', emoji: '📰' },
               { name: 'Zim News Online', url: 'https://www.zimnewsonline.com', display: 'zimnewsonline.com', cat: 'News Portal', emoji: '🌍' },
               { name: 'PrintZone', url: 'https://www.printzone.co.zw', display: 'printzone.co.zw', cat: 'E-Commerce', emoji: '🖨️' },
-              { name: 'Molly — WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', emoji: '🤖' },
+              { name: 'Molly WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', emoji: '🤖' },
             ].map((p) => (
               <a
                 key={p.name}

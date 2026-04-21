@@ -3,11 +3,11 @@ import Link from 'next/link'
 import { ArrowRight, Target, Eye, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Zentrik Solutions — Zimbabwe Software & AI Company',
-  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software, chatbot development, and AI agents — serving clients across Africa, the UK, and USA.',
+  title: 'About Zentrik Solutions: Zimbabwe Software & AI Company',
+  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software, chatbot development, and AI agents, serving clients across Africa, the UK, and USA.',
   alternates: { canonical: 'https://www.zentriksolutions.com/about' },
   openGraph: {
-    title: 'About Zentrik Solutions — Zimbabwe-Based Software & AI Company',
+    title: 'About Zentrik Solutions: Zimbabwe-Based Software & AI Company',
     description: 'Born in Zimbabwe, built for the world. We build custom software, chatbots, and AI agents for businesses across Africa and globally.',
     url: 'https://www.zentriksolutions.com/about',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -37,7 +37,7 @@ const values = [
   {
     icon: Heart,
     title: 'Partnership',
-    desc: 'We\'re not just a vendor — we\'re a long-term technology partner invested in your business success.',
+    desc: 'We\'re not just a vendor. We\'re a long-term technology partner invested in your business success.',
   },
 ]
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
               <div className="space-y-4 text-[17px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.7)' }}>
                 <p>
                   Zentrik Solutions was founded with one belief: African businesses deserve
-                  access to the same cutting-edge technology as companies in Silicon Valley —
+                  access to the same cutting-edge technology as companies in Silicon Valley,
                   without the Silicon Valley price tag.
                 </p>
                 <p>
@@ -87,7 +87,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Our team combines deep technical expertise with a genuine passion for
-                  solving real problems. We don&apos;t just write code — we build solutions
+                  solving real problems. We don&apos;t just write code. We build solutions
                   that make a measurable difference to your bottom line.
                 </p>
               </div>

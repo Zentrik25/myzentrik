@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Custom software development, WhatsApp chatbots, and AI agents built by Zentrik Solutions for businesses across Africa and beyond. Free quote in 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/services' },
   openGraph: {
-    title: 'Software, Chatbot & AI Agent Services — Zentrik Solutions',
+    title: 'Software, Chatbot & AI Agent Services: Zentrik Solutions',
     description: 'Custom software, WhatsApp chatbots, and AI agents for African businesses. Enterprise-grade quality at accessible prices.',
     url: 'https://www.zentriksolutions.com/services',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
@@ -19,7 +19,7 @@ const serviceSchema = {
   '@type': 'ItemList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, item: { '@type': 'Service', name: 'Custom Software Development', description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems built with Next.js, React, Node.js, and Supabase.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
-    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'WhatsApp Chatbot Development', description: 'WhatsApp Business API chatbots for customer support, bookings, and sales — 24/7 automation.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
+    { '@type': 'ListItem', position: 2, item: { '@type': 'Service', name: 'WhatsApp Chatbot Development', description: 'WhatsApp Business API chatbots for customer support, bookings, and sales.24/7 automation.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
     { '@type': 'ListItem', position: 3, item: { '@type': 'Service', name: 'AI Agents', description: 'Autonomous AI agents for research, workflow automation, and complex business tasks powered by GPT-4, Claude, and Gemini.', provider: { '@type': 'Organization', name: 'Zentrik Solutions' } } },
   ],
 }
@@ -31,7 +31,7 @@ const services = [
     label: 'Software Development',
     title: 'Custom Software That Works for You',
     description:
-      'Whether you need an internal tool, a customer-facing web app, or a full SaaS platform — we design, build and launch it. Our team uses modern frameworks like Next.js, React, Node.js, and Supabase to deliver scalable, secure products.',
+      'Whether you need an internal tool, a customer-facing web app, or a full SaaS platform.we design, build and launch it. Our team uses modern frameworks like Next.js, React, Node.js, and Supabase to deliver scalable, secure products.',
     features: [
       'Web Applications (Next.js, React)',
       'Mobile Apps (React Native)',
@@ -50,7 +50,7 @@ const services = [
     label: 'WhatsApp Chatbot Development',
     title: 'WhatsApp Chatbots That Close Deals & Delight Customers',
     description:
-      'We build intelligent WhatsApp Business API chatbots that handle customer support, appointment booking, product queries, lead capture, and more — 24/7, automatically. Your business stays open even while you sleep.',
+      'We build intelligent WhatsApp Business API chatbots that handle customer support, appointment booking, product queries, lead capture, and more.24/7, automatically. Your business stays open even while you sleep.',
     features: [
       'WhatsApp Business API Chatbots',
       'Automated Customer Support',
@@ -69,7 +69,7 @@ const services = [
     label: 'AI Agents',
     title: 'AI Agents That Think, Plan & Execute',
     description:
-      'Beyond simple automation — our AI agents are autonomous systems that can research, reason, and take multi-step actions to complete complex business tasks. Powered by GPT-4, Claude, and Gemini.',
+      'Beyond simple automation.our AI agents are autonomous systems that can research, reason, and take multi-step actions to complete complex business tasks. Powered by GPT-4, Claude, and Gemini.',
     features: [
       'Autonomous Research & Data Agents',
       'Sales & Outreach Automation Agents',
@@ -100,12 +100,12 @@ export default function ServicesPage() {
             Everything You Need<br />to Grow Digitally.
           </h1>
           <p style={{ fontSize: '21px', lineHeight: 1.19, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.231px' }}>
-            From initial idea to live product — we cover the full spectrum of modern software, automation, and AI.
+            From initial idea to live product.we cover the full spectrum of modern software, automation, and AI.
           </p>
         </div>
       </section>
 
-      {/* Services — alternating sections */}
+      {/* Services.alternating sections */}
       {services.map((svc, i) => (
         <section
           key={svc.id}
@@ -181,7 +181,7 @@ export default function ServicesPage() {
             Not sure which service you need?
           </h2>
           <p className="mb-8 text-[17px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Book a free 30-minute discovery call. We&apos;ll listen, advise, and give you a clear recommendation — no obligation.
+            Book a free 30-minute discovery call. We&apos;ll listen, advise, and give you a clear recommendation.no obligation.
           </p>
           <Link href="/contact" className="apple-btn-primary">
             Book a Free Call <ArrowRight className="ml-2 inline-block h-4 w-4" />
