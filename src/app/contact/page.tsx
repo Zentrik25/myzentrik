@@ -36,7 +36,7 @@ export default function ContactPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>Get In Touch</p>
           <h1
@@ -52,7 +52,7 @@ export default function ContactPage() {
       </section>
 
       {/* Content */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
           <div className="grid gap-10 lg:grid-cols-5">
             {/* Contact info */}

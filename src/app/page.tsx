@@ -139,7 +139,7 @@ export default function HomePage() {
           </FadeIn>
 
           {/* Stats */}
-          <FadeInStagger className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <FadeInStagger className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((s) => (
               <FadeInItem key={s.label}>
                 <div className="text-center">
@@ -153,9 +153,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Services ─────────────────────────────────────────── */}
-      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+      <section style={{ background: '#ffffff', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <FadeIn className="mb-12 text-center">
+          <FadeIn className="mb-8 text-center">
             <p className="section-label mb-2">What We Do</p>
             <h2
               className="font-semibold"
@@ -210,9 +210,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Why Us ───────────────────────────────────────────── */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <FadeIn className="mb-12 text-center">
+          <FadeIn className="mb-8 text-center">
             <p className="section-label mb-2" style={{ color: 'rgba(255,255,255,0.48)' }}>Why Zentrik</p>
             <h2
               className="font-semibold text-white"
@@ -242,9 +242,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Process ──────────────────────────────────────────── */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <FadeIn className="mb-12 text-center">
+          <FadeIn className="mb-8 text-center">
             <p className="section-label mb-2">How We Work</p>
             <h2
               className="font-semibold"
@@ -275,9 +275,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Our Work ─────────────────────────────────────────── */}
-      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+      <section style={{ background: '#ffffff', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <FadeIn className="mb-12 flex items-end justify-between">
+          <FadeIn className="mb-8 flex items-end justify-between">
             <div>
               <p className="section-label mb-2">Portfolio</p>
               <h2
@@ -338,9 +338,9 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ─────────────────────────────────────── */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <FadeIn className="mb-12 text-center">
+          <FadeIn className="mb-8 text-center">
             <p className="section-label mb-2" style={{ color: 'rgba(255,255,255,0.48)' }}>Client Stories</p>
             <h2
               className="font-semibold text-white"
@@ -374,7 +374,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ──────────────────────────────────────────────── */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '72px 0' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <FadeIn>
             <h2

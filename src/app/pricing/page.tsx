@@ -116,7 +116,7 @@ export default function PricingPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>Transparent Pricing</p>
           <h1
@@ -132,7 +132,7 @@ export default function PricingPage() {
       </section>
 
       {/* Plans */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
           <div className="grid gap-6 lg:grid-cols-3">
             {plans.map((plan) => (
@@ -218,9 +218,9 @@ export default function PricingPage() {
       </section>
 
       {/* Add-ons */}
-      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+      <section style={{ background: '#ffffff', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <p className="section-label mb-2">Add-ons & Extras</p>
             <h2
               className="font-semibold"
@@ -250,9 +250,9 @@ export default function PricingPage() {
       </section>
 
       {/* FAQs */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[640px] px-5">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <p className="section-label mb-2">FAQ</p>
             <h2
               className="font-semibold"
@@ -278,7 +278,7 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <h2
             className="mb-3 font-semibold text-white"

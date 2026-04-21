@@ -77,7 +77,7 @@ export default function FAQPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>FAQ</p>
           <h1
@@ -96,9 +96,9 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Categories */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[740px] px-5">
-          <div className="space-y-16">
+          <div className="space-y-10">
             {categories.map((cat) => (
               <div key={cat.label}>
                 <div className="mb-6 flex items-center gap-3">
@@ -131,7 +131,7 @@ export default function FAQPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <h2
             className="mb-3 font-semibold text-white"

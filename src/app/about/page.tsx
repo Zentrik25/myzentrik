@@ -47,7 +47,7 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>
         <div className="mx-auto max-w-[740px] px-5 text-center">
           <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>About Us</p>
           <h1
@@ -63,9 +63,9 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+      <section style={{ background: '#ffffff', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="section-label mb-4">Our Story</p>
               <h2
@@ -121,9 +121,9 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+      <section style={{ background: '#f5f5f7', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <p className="section-label mb-2">Our Values</p>
             <h2
               className="font-semibold"
@@ -160,9 +160,9 @@ export default function AboutPage() {
       </section>
 
       {/* Technologies */}
-      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+      <section style={{ background: '#ffffff', padding: '64px 0' }}>
         <div className="mx-auto max-w-[980px] px-5">
-          <div className="mb-12 text-center">
+          <div className="mb-8 text-center">
             <h2
               className="font-semibold"
               style={{ fontSize: '32px', letterSpacing: '-0.28px', color: '#1d1d1f' }}
@@ -199,7 +199,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <h2
             className="mb-4 font-semibold text-white"

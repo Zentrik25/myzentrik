@@ -23,8 +23,8 @@ const legal = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#f5f5f7', borderTop: '1px solid #d2d2d7' }}>
-      <div className="mx-auto max-w-[980px] px-5 py-16">
+    <footer style={{ background: '#ffffff', borderTop: '1px solid #d2d2d7' }}>
+      <div className="mx-auto max-w-[980px] px-5 py-10">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
@@ -134,7 +134,7 @@ export default function Footer() {
         </div>
 
         <div
-          className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 sm:flex-row"
+          className="mt-8 flex flex-col items-center justify-between gap-4 border-t pt-6 sm:flex-row"
           style={{ borderColor: '#d2d2d7' }}
         >
           <p className="text-xs" style={{ color: 'rgba(0,0,0,0.48)' }}>

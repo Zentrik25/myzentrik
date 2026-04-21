@@ -90,7 +90,7 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* Hero */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>
         <div className="mx-auto max-w-[740px] px-5 text-center">
           <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>Our Services</p>
           <h1
@@ -110,7 +110,7 @@ export default function ServicesPage() {
         <section
           key={svc.id}
           id={svc.id}
-          style={{ background: i % 2 === 0 ? '#ffffff' : '#f5f5f7', padding: '80px 0' }}
+          style={{ background: i % 2 === 0 ? '#ffffff' : '#f5f5f7', padding: '64px 0' }}
         >
           <div className="mx-auto max-w-[980px] px-5">
             <div className={`flex flex-col gap-12 lg:flex-row lg:items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
@@ -172,7 +172,7 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA */}
-      <section style={{ background: '#000000', padding: '80px 0' }}>
+      <section style={{ background: '#000000', padding: '64px 0' }}>
         <div className="mx-auto max-w-[640px] px-5 text-center">
           <h2
             className="mb-4 font-semibold text-white"
