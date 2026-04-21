@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowUpRight, Globe, Bot, Printer, Newspaper } from 'lucide-react'
+import { ArrowUpRight, Bot, Newspaper } from 'lucide-react'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -36,42 +36,6 @@ const projects = [
       'RSS feed + XML sitemap for Google News indexing',
     ],
     Icon: Newspaper,
-    status: 'Live',
-  },
-  {
-    name: 'Zim News Online',
-    url: 'https://www.zimnewsonline.com',
-    displayUrl: 'zimnewsonline.com',
-    category: 'Online News Portal',
-    type: 'website',
-    tags: ['Next.js', 'Tailwind CSS', 'Supabase', 'Vercel'],
-    description:
-      'Zimbabwe\'s online news portal delivering breaking news, politics, business, and sport. Built for speed and high traffic with server-side rendering and optimised media delivery.',
-    highlights: [
-      'Breaking news with real-time updates',
-      'Optimised for high-traffic on low-bandwidth connections',
-      'Google News approved with news sitemap',
-      'Social sharing with WhatsApp-ready OG previews',
-    ],
-    Icon: Globe,
-    status: 'Live',
-  },
-  {
-    name: 'PrintZone',
-    url: 'https://www.printzone.co.zw',
-    displayUrl: 'printzone.co.zw',
-    category: 'E-Commerce Platform',
-    type: 'website',
-    tags: ['Next.js', 'Supabase', 'Tailwind CSS', 'EcoCash Integration'],
-    description:
-      'A full e-commerce platform for Zimbabwe\'s leading print and branding company. Customers can order business cards, banners, flyers, and branded merchandise online with EcoCash and USD card payments.',
-    highlights: [
-      'Online ordering with file upload & design preview',
-      'EcoCash & USD card payment integration',
-      'Admin dashboard for order management',
-      'Automated WhatsApp order confirmation',
-    ],
-    Icon: Printer,
     status: 'Live',
   },
   {
