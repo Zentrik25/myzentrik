@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock } from 'lucide-react'
 import { FadeIn, FadeInStagger, FadeInItem } from '@/components/FadeIn'
+import { TypewriterText } from '@/components/TypewriterText'
+import { HeroBackground } from '@/components/HeroBackground'
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.zentriksolutions.com' },
@@ -102,8 +104,9 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
-        <div className="mx-auto max-w-[980px] px-5 text-center">
+      <section style={{ position: 'relative', background: '#000000', paddingTop: '96px', paddingBottom: '80px', overflow: 'hidden' }}>
+        <HeroBackground />
+        <div className="mx-auto max-w-[980px] px-5 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <FadeIn>
             <p className="section-label mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
               Zimbabwe&apos;s Leading AI &amp; Software Studio
@@ -112,7 +115,12 @@ export default function HomePage() {
               className="mb-6 font-semibold text-white"
               style={{ fontSize: 'clamp(40px, 6vw, 56px)', lineHeight: 1.07, letterSpacing: '-0.28px' }}
             >
-              Replace your manual work<br />with AI that never sleeps.
+              We automate your{' '}
+              <TypewriterText
+                words={['customer support', 'sales pipeline', 'booking flow', 'follow-ups', 'manual work']}
+                style={{ color: '#2997ff' }}
+              />
+              <br />with AI that never sleeps.
             </h1>
             <p
               className="mx-auto mb-10 text-white/70"
