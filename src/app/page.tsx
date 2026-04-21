@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock } from 'lucide-react'
 import { FadeIn, FadeInStagger, FadeInItem } from '@/components/FadeIn'
-import { TypewriterText } from '@/components/TypewriterText'
 import { HeroBackground } from '@/components/HeroBackground'
 
 export const metadata: Metadata = {
@@ -108,19 +107,17 @@ export default function HomePage() {
         <HeroBackground />
         <div className="mx-auto max-w-[980px] px-5 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <FadeIn>
-            <p className="section-label mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p
+              className="mb-5 inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
+              style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.12)', letterSpacing: '0.08em' }}
+            >
               Zimbabwe&apos;s Leading AI &amp; Software Studio
             </p>
             <h1
               className="mb-6 font-semibold text-white"
               style={{ fontSize: 'clamp(40px, 6vw, 56px)', lineHeight: 1.07, letterSpacing: '-0.28px' }}
             >
-              We automate your{' '}
-              <TypewriterText
-                words={['customer support', 'sales pipeline', 'booking flow', 'follow-ups', 'manual work']}
-                style={{ color: '#2997ff' }}
-              />
-              <br />with AI that never sleeps.
+              Replace your manual work<br />with AI that never sleeps.
             </h1>
             <p
               className="mx-auto mb-10 text-white/70"
