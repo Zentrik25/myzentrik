@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock } from 'lucide-react'
 import { FadeIn, FadeInStagger, FadeInItem } from '@/components/FadeIn'
 import { HeroBackground } from '@/components/HeroBackground'
+import { TypewriterText } from '@/components/TypewriterText'
+import { CountUp } from '@/components/CountUp'
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.zentriksolutions.com' },
@@ -107,11 +109,12 @@ export default function HomePage() {
         <HeroBackground />
         <div className="mx-auto max-w-[980px] px-5 text-center" style={{ position: 'relative', zIndex: 1 }}>
           <FadeIn>
-            <p
-              className="mb-5 inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest"
-              style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.12)', letterSpacing: '0.08em' }}
-            >
-              Zimbabwe&apos;s Leading AI &amp; Software Studio
+            <p className="section-label mb-5" style={{ color: 'rgba(255,255,255,0.5)', minHeight: '1.2em' }}>
+              <TypewriterText
+                words={["Zimbabwe's Leading AI & Software Studio"]}
+                loop={false}
+                style={{ color: 'rgba(255,255,255,0.5)' }}
+              />
             </p>
             <h1
               className="mb-6 font-semibold text-white"
@@ -140,7 +143,7 @@ export default function HomePage() {
             {stats.map((s) => (
               <FadeInItem key={s.label}>
                 <div className="text-center">
-                  <p className="text-3xl font-semibold text-white" style={{ letterSpacing: '-0.28px' }}>{s.value}</p>
+                  <CountUp value={s.value} className="text-3xl font-semibold text-white" style={{ letterSpacing: '-0.28px' }} />
                   <p className="mt-1 text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.label}</p>
                 </div>
               </FadeInItem>
