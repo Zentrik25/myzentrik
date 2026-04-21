@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   alternates: { canonical: 'https://www.zentriksolutions.com' },
@@ -27,40 +28,27 @@ const organizationSchema = {
     { '@type': 'Review', author: { '@type': 'Person', name: 'Michael Torres' }, reviewBody: 'The AI agent they built for our logistics routing cut manual dispatch time by 70%. Best tech investment we have made in years.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
   ],
 }
-import { buttonVariants } from '@/lib/button-variants'
-import { Badge } from '@/components/ui/badge'
-import { cn } from '@/lib/utils'
-import {
-  ArrowRight, Code2, Bot, Brain, CheckCircle2, Zap,
-  Globe, Shield, Clock, Users, ChevronRight, Star, ArrowUpRight
-} from 'lucide-react'
 
 const services = [
   {
     icon: Code2,
-    title: 'Custom Software Development',
-    description:
-      'Web apps, mobile apps, SaaS platforms, and enterprise systems — built to scale with your business. Modern stack, clean code, zero compromise.',
+    title: 'Custom Software',
+    description: 'Web apps, mobile apps, SaaS platforms, and enterprise systems — built to scale with your business.',
     features: ['Web & Mobile Apps', 'SaaS Platforms', 'API Development', 'Cloud Deployment'],
-    color: 'from-blue-500 to-cyan-500',
     href: '/services#software',
   },
   {
     icon: Bot,
-    title: 'WhatsApp Chatbot Development',
-    description:
-      'WhatsApp Business API chatbots that handle customer support, bookings, sales, and more — 24/7 without lifting a finger.',
+    title: 'WhatsApp Chatbots',
+    description: 'WhatsApp Business API chatbots that handle customer support, bookings, and sales — 24/7 automatically.',
     features: ['WhatsApp Business API', 'Automated Support', 'Booking Flows', 'Lead Capture'],
-    color: 'from-violet-500 to-purple-600',
     href: '/services#chatbots',
   },
   {
     icon: Brain,
     title: 'AI Agents',
-    description:
-      'Autonomous AI agents that think, plan, and execute tasks. From research assistants to fully automated business workflows — powered by the latest LLMs.',
+    description: 'Autonomous AI agents that think, plan, and execute tasks — powered by the latest LLMs.',
     features: ['Autonomous Agents', 'Workflow Automation', 'LLM Integration', 'Custom AI Tools'],
-    color: 'from-orange-500 to-pink-600',
     href: '/services#ai-agents',
   },
 ]
@@ -111,55 +99,30 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />
-        {/* Glow */}
-        <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/20 blur-[120px]" />
-        <div className="absolute right-0 top-1/2 h-[400px] w-[400px] rounded-full bg-blue-600/15 blur-[100px]" />
 
-        <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-          <Badge
-            variant="outline"
-            className="mb-6 border-violet-500/40 bg-violet-500/10 text-violet-300 hover:bg-violet-500/10"
-          >
-            <Zap className="mr-1.5 h-3 w-3" />
-            Zimbabwe&apos;s Leading AI & Software Studio
-          </Badge>
-
-          <h1 className="mb-6 text-5xl font-black leading-tight tracking-tight text-white sm:text-6xl lg:text-7xl">
-            We Build{' '}
-            <span className="bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent">
-              Software
-            </span>
-            ,<br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Chatbots
-            </span>{' '}
-            &{' '}
-            <span className="bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
-              AI Agents
-            </span>
-          </h1>
-
-          <p className="mb-10 max-w-2xl text-lg leading-relaxed text-gray-400 sm:text-xl">
-            Zentrik Solutions turns your business ideas into powerful digital products.
-            Custom software, intelligent chatbots, and autonomous AI agents — built
-            fast, built to last.
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+        <div className="mx-auto max-w-[980px] px-5 text-center">
+          <p className="section-label mb-6" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Zimbabwe&apos;s Leading AI &amp; Software Studio
           </p>
-
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className={cn(buttonVariants({ size: 'lg' }), 'h-12 bg-gradient-to-r from-violet-600 to-blue-600 px-8 text-base font-semibold text-white hover:from-violet-500 hover:to-blue-500')}
-            >
-              Start Your Project <ArrowRight className="ml-2 h-4 w-4" />
+          <h1
+            className="mb-6 font-semibold text-white"
+            style={{ fontSize: 'clamp(40px, 6vw, 56px)', lineHeight: 1.07, letterSpacing: '-0.28px' }}
+          >
+            Replace your manual work<br />with AI that never sleeps.
+          </h1>
+          <p
+            className="mx-auto mb-10 text-white/70"
+            style={{ fontSize: '21px', lineHeight: 1.19, letterSpacing: '0.231px', maxWidth: '600px' }}
+          >
+            We build the WhatsApp chatbots, custom software and AI agents that let Zimbabwean businesses handle 10x more customers without hiring 10x more staff.
+          </p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact" className="apple-btn-primary">
+              Start Your Project <ArrowRight className="ml-2 inline-block h-4 w-4" />
             </Link>
-            <Link
-              href="/services"
-              className={cn(buttonVariants({ size: 'lg', variant: 'outline' }), 'h-12 border-white/20 bg-white/5 px-8 text-base text-white hover:bg-white/10')}
-            >
+            <Link href="/services" className="apple-btn-outline" style={{ color: '#2997ff', borderColor: '#2997ff' }}>
               View Our Services
             </Link>
           </div>
@@ -168,161 +131,186 @@ export default function HomePage() {
           <div className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-3xl font-black text-white">{s.value}</p>
-                <p className="mt-1 text-sm text-gray-400">{s.label}</p>
+                <p className="text-3xl font-semibold text-white" style={{ letterSpacing: '-0.28px' }}>{s.value}</p>
+                <p className="mt-1 text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>{s.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Services ───────────────────────────────────────────────── */}
-      <section id="services" className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              What We Do
-            </Badge>
-            <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl">
+      {/* ── Services ─────────────────────────────────────────── */}
+      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
+          <div className="mb-12 text-center">
+            <p className="section-label mb-2">What We Do</p>
+            <h2
+              className="font-semibold"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+            >
               Our Services
             </h2>
-            <p className="mx-auto max-w-2xl text-gray-400">
+            <p className="mt-4 mx-auto text-[17px]" style={{ color: 'rgba(0,0,0,0.6)', maxWidth: '500px' }}>
               Three powerful service lines, one mission: make your business faster, smarter, and more profitable.
             </p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
             {services.map((svc) => (
               <Link
                 key={svc.title}
                 href={svc.href}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 transition-all hover:border-violet-500/40 hover:bg-white/8"
+                className="group apple-card block"
+                style={{ textDecoration: 'none' }}
               >
-                {/* Icon */}
-                <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${svc.color}`}>
-                  <svc.icon className="h-7 w-7 text-white" />
+                <div
+                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl"
+                  style={{ background: '#0071e3' }}
+                >
+                  <svc.icon className="h-6 w-6 text-white" />
                 </div>
-
-                <h3 className="mb-3 text-xl font-bold text-white">{svc.title}</h3>
-                <p className="mb-6 text-sm leading-relaxed text-gray-400">{svc.description}</p>
-
-                <ul className="mb-6 space-y-2">
+                <h3
+                  className="mb-2 font-semibold"
+                  style={{ fontSize: '21px', lineHeight: 1.19, color: '#1d1d1f', letterSpacing: '0.231px' }}
+                >
+                  {svc.title}
+                </h3>
+                <p className="mb-5 text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>
+                  {svc.description}
+                </p>
+                <ul className="mb-5 space-y-1.5">
                   {svc.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
-                      <CheckCircle2 className="h-4 w-4 text-violet-400" />
+                    <li key={f} className="flex items-center gap-2 text-sm" style={{ color: 'rgba(0,0,0,0.8)' }}>
+                      <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: '#0071e3' }} />
                       {f}
                     </li>
                   ))}
                 </ul>
-
-                <span className="flex items-center gap-1 text-sm font-semibold text-violet-400 group-hover:gap-2 transition-all">
-                  Learn more <ChevronRight className="h-4 w-4" />
+                <span className="text-sm font-medium" style={{ color: '#0066cc' }}>
+                  Learn more &gt;
                 </span>
-
-                {/* Hover glow */}
-                <div className={`absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${svc.color} opacity-0 blur-2xl transition-opacity group-hover:opacity-20`} />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Why Us ─────────────────────────────────────────────────── */}
-      <section className="py-24 border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              Why Zentrik
-            </Badge>
-            <h2 className="text-4xl font-black text-white sm:text-5xl">
+      {/* ── Why Us ───────────────────────────────────────────── */}
+      <section style={{ background: '#000000', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
+          <div className="mb-12 text-center">
+            <p className="section-label mb-2" style={{ color: 'rgba(255,255,255,0.48)' }}>Why Zentrik</p>
+            <h2
+              className="font-semibold text-white"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px' }}
+            >
               Built Different
             </h2>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {whyUs.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-violet-500/30 bg-violet-500/10">
-                  <item.icon className="h-6 w-6 text-violet-400" />
+              <div
+                key={item.title}
+                className="apple-card-dark"
+              >
+                <div
+                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                  style={{ background: '#0071e3' }}
+                >
+                  <item.icon className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="mb-2 font-bold text-white">{item.title}</h3>
-                <p className="text-sm text-gray-400">{item.desc}</p>
+                <h3 className="mb-2 font-semibold text-white" style={{ fontSize: '17px' }}>{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Process ────────────────────────────────────────────────── */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              How We Work
-            </Badge>
-            <h2 className="text-4xl font-black text-white sm:text-5xl">Our Process</h2>
-            <p className="mx-auto mt-4 max-w-xl text-gray-400">
+      {/* ── Process ──────────────────────────────────────────── */}
+      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
+          <div className="mb-12 text-center">
+            <p className="section-label mb-2">How We Work</p>
+            <h2
+              className="font-semibold"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+            >
+              Our Process
+            </h2>
+            <p className="mt-4 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)' }}>
               From idea to live product — transparent, fast, and stress-free.
             </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {process.map((p, i) => (
-              <div key={p.step} className="relative">
-                {i < process.length - 1 && (
-                  <div className="absolute left-full top-8 hidden h-px w-full bg-gradient-to-r from-violet-500/50 to-transparent lg:block" />
-                )}
-                <div className="mb-4 text-4xl font-black text-violet-500/30">{p.step}</div>
-                <h3 className="mb-2 font-bold text-white">{p.title}</h3>
-                <p className="text-sm text-gray-400">{p.desc}</p>
+            {process.map((p) => (
+              <div key={p.step}>
+                <div
+                  className="mb-4 text-4xl font-semibold"
+                  style={{ color: '#0071e3', letterSpacing: '-0.28px' }}
+                >
+                  {p.step}
+                </div>
+                <h3 className="mb-2 font-semibold" style={{ color: '#1d1d1f', fontSize: '17px' }}>{p.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Our Work ───────────────────────────────────────────────── */}
-      <section className="py-24 border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* ── Our Work ─────────────────────────────────────────── */}
+      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
           <div className="mb-12 flex items-end justify-between">
             <div>
-              <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-                Portfolio
-              </Badge>
-              <h2 className="text-4xl font-black text-white sm:text-5xl">Our Work</h2>
-              <p className="mt-3 max-w-xl text-gray-400">
-                Real projects, live in production, built for real clients across Zimbabwe.
+              <p className="section-label mb-2">Portfolio</p>
+              <h2
+                className="font-semibold"
+                style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+              >
+                Our Work
+              </h2>
+              <p className="mt-3 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)', maxWidth: '420px' }}>
+                Real projects, live in production, built for clients across Zimbabwe.
               </p>
             </div>
-            <Link href="/work" className="hidden items-center gap-1 text-sm font-semibold text-violet-400 hover:text-violet-300 sm:flex">
-              View all projects <ArrowUpRight className="h-4 w-4" />
+            <Link
+              href="/work"
+              className="hidden text-sm font-medium sm:flex items-center gap-1"
+              style={{ color: '#0066cc' }}
+            >
+              View all <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', color: 'from-blue-500 to-cyan-500', emoji: '📰' },
-              { name: 'Zim News Online', url: 'https://www.zimnewsonline.com', display: 'zimnewsonline.com', cat: 'News Portal', color: 'from-green-500 to-emerald-600', emoji: '🌍' },
-              { name: 'PrintZone', url: 'https://www.printzone.co.zw', display: 'printzone.co.zw', cat: 'E-Commerce', color: 'from-orange-500 to-red-500', emoji: '🖨️' },
-              { name: 'Molly — WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', color: 'from-violet-500 to-purple-600', emoji: '🤖' },
+              { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', emoji: '📰' },
+              { name: 'Zim News Online', url: 'https://www.zimnewsonline.com', display: 'zimnewsonline.com', cat: 'News Portal', emoji: '🌍' },
+              { name: 'PrintZone', url: 'https://www.printzone.co.zw', display: 'printzone.co.zw', cat: 'E-Commerce', emoji: '🖨️' },
+              { name: 'Molly — WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', emoji: '🤖' },
             ].map((p) => (
               <a
                 key={p.name}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 transition-all hover:border-violet-500/30 hover:bg-white/[0.08]"
+                className="apple-card block"
+                style={{ textDecoration: 'none' }}
               >
-                <div className={`absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br ${p.color} opacity-0 blur-2xl transition-opacity group-hover:opacity-20`} />
-                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${p.color} text-2xl`}>
-                  {p.emoji}
-                </div>
+                <div className="mb-3 text-3xl">{p.emoji}</div>
                 <div className="mb-1 flex items-center gap-2">
-                  <h3 className="font-bold text-white">{p.name}</h3>
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
+                  <h3 className="font-semibold" style={{ fontSize: '17px', color: '#1d1d1f' }}>{p.name}</h3>
+                  <span
+                    className="h-2 w-2 rounded-full"
+                    style={{ background: '#34c759', flexShrink: 0 }}
+                  />
                 </div>
-                <p className="mb-3 text-xs text-gray-500">{p.cat}</p>
-                <p className="flex items-center gap-1 text-xs text-violet-400 group-hover:gap-2 transition-all">
+                <p className="mb-3 text-xs" style={{ color: 'rgba(0,0,0,0.48)' }}>{p.cat}</p>
+                <p className="flex items-center gap-1 text-sm font-medium" style={{ color: '#0066cc' }}>
                   {p.display} <ArrowUpRight className="h-3 w-3" />
                 </p>
               </a>
@@ -330,42 +318,40 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 text-center">
-            <Link href="/work" className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-gray-300 hover:border-violet-500/30 hover:text-white transition-all">
-              View full case studies <ArrowUpRight className="h-4 w-4" />
+            <Link href="/work" className="apple-btn-outline" style={{ fontSize: '14px', padding: '8px 18px' }}>
+              View Full Case Studies <ArrowUpRight className="ml-1 inline-block h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── Testimonials ───────────────────────────────────────────── */}
-      <section className="py-24 border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              Client Stories
-            </Badge>
-            <h2 className="text-4xl font-black text-white sm:text-5xl">
+      {/* ── Testimonials ─────────────────────────────────────── */}
+      <section style={{ background: '#000000', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
+          <div className="mb-12 text-center">
+            <p className="section-label mb-2" style={{ color: 'rgba(255,255,255,0.48)' }}>Client Stories</p>
+            <h2
+              className="font-semibold text-white"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px' }}
+            >
               What Our Clients Say
             </h2>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="rounded-2xl border border-white/10 bg-white/5 p-8"
-              >
+              <div key={t.name} className="apple-card-dark">
                 <div className="mb-4 flex gap-1">
                   {Array.from({ length: t.stars }).map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
-                <p className="mb-6 text-sm leading-relaxed text-gray-300">
+                <p className="mb-6 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)' }}>
                   &ldquo;{t.body}&rdquo;
                 </p>
                 <div>
-                  <p className="font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-gray-500">{t.role}</p>
+                  <p className="font-semibold text-white" style={{ fontSize: '14px' }}>{t.name}</p>
+                  <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.48)' }}>{t.role}</p>
                 </div>
               </div>
             ))}
@@ -373,29 +359,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA ────────────────────────────────────────────────────── */}
-      <section className="py-24">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-violet-500/30 bg-gradient-to-br from-violet-600/20 to-blue-600/20 px-8 py-16">
-            {/* Glow */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-64 w-64 rounded-full bg-violet-600/30 blur-[80px]" />
-            </div>
-            <div className="relative">
-              <h2 className="mb-4 text-4xl font-black text-white sm:text-5xl">
-                Ready to Build Something Amazing?
-              </h2>
-              <p className="mb-8 text-lg text-gray-300">
-                Tell us about your project. We&apos;ll get back to you with a free
-                quote within 24 hours.
-              </p>
-              <Link
-                href="/contact"
-                className={cn(buttonVariants({ size: 'lg' }), 'h-14 bg-gradient-to-r from-violet-600 to-blue-600 px-10 text-lg font-semibold text-white hover:from-violet-500 hover:to-blue-500')}
-              >
-                Get Your Free Quote <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
+      {/* ── CTA ──────────────────────────────────────────────── */}
+      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[640px] px-5 text-center">
+          <h2
+            className="mb-4 font-semibold"
+            style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+          >
+            Ready to build something great?
+          </h2>
+          <p className="mb-8 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)' }}>
+            Tell us about your project. We&apos;ll get back to you with a free quote within 24 hours.
+          </p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact" className="apple-btn-primary">
+              Get Your Free Quote <ArrowRight className="ml-2 inline-block h-4 w-4" />
+            </Link>
+            <Link href="/services" className="apple-btn-outline">
+              View Services
+            </Link>
           </div>
         </div>
       </section>

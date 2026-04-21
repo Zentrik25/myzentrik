@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
 import { CheckCircle2 } from 'lucide-react'
 
@@ -30,7 +29,6 @@ export default function ContactForm() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) })
 
   async function onSubmit(values: FormValues) {
-    // Send via mailto for now — replace with API route + Resend/Nodemailer for production
     const subject = encodeURIComponent(`New Project Enquiry — ${values.service} from ${values.name}`)
     const body = encodeURIComponent(
       `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone || 'Not provided'}\nService: ${values.service}\nBudget: ${values.budget}\n\nMessage:\n${values.message}`
@@ -44,16 +42,22 @@ export default function ContactForm() {
   if (sent) {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500/20">
-          <CheckCircle2 className="h-8 w-8 text-green-400" />
+        <div
+          className="mb-4 flex h-16 w-16 items-center justify-center rounded-full"
+          style={{ background: 'rgba(52,199,89,0.12)' }}
+        >
+          <CheckCircle2 className="h-8 w-8" style={{ color: '#34c759' }} />
         </div>
-        <h3 className="mb-2 text-xl font-bold text-white">Message Sent!</h3>
-        <p className="text-gray-400">
+        <h3 className="mb-2 font-semibold" style={{ fontSize: '21px', color: '#1d1d1f' }}>
+          Message Sent!
+        </h3>
+        <p style={{ color: 'rgba(0,0,0,0.6)' }}>
           We&apos;ll get back to you within 24 hours.
         </p>
         <button
           onClick={() => setSent(false)}
-          className="mt-6 text-sm text-violet-400 hover:underline"
+          className="mt-6 text-sm transition-colors hover:underline"
+          style={{ color: '#0066cc' }}
         >
           Send another message
         </button>
@@ -61,90 +65,127 @@ export default function ContactForm() {
     )
   }
 
-  const inputCls =
-    'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-violet-500/60 focus:outline-none focus:ring-2 focus:ring-violet-500/20'
-  const errorCls = 'mt-1 text-xs text-red-400'
+  const labelStyle: React.CSSProperties = {
+    display: 'block',
+    fontSize: '14px',
+    fontWeight: 600,
+    color: '#1d1d1f',
+    marginBottom: '6px',
+    letterSpacing: '-0.224px',
+  }
+
+  const errorStyle: React.CSSProperties = {
+    marginTop: '4px',
+    fontSize: '12px',
+    color: '#ff3b30',
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="name">
-            Full Name *
-          </label>
-          <input id="name" {...register('name')} placeholder="Tatenda Moyo" className={inputCls} />
-          {errors.name && <p className={errorCls}>{errors.name.message}</p>}
+          <label style={labelStyle} htmlFor="name">Full Name *</label>
+          <input
+            id="name"
+            {...register('name')}
+            placeholder="Tatenda Moyo"
+            className="apple-input"
+            style={errors.name ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
+          />
+          {errors.name && <p style={errorStyle}>{errors.name.message}</p>}
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="email">
-            Email Address *
-          </label>
-          <input id="email" type="email" {...register('email')} placeholder="you@company.com" className={inputCls} />
-          {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+          <label style={labelStyle} htmlFor="email">Email Address *</label>
+          <input
+            id="email"
+            type="email"
+            {...register('email')}
+            placeholder="you@company.com"
+            className="apple-input"
+            style={errors.email ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
+          />
+          {errors.email && <p style={errorStyle}>{errors.email.message}</p>}
         </div>
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="phone">
-          Phone / WhatsApp (optional)
-        </label>
-        <input id="phone" {...register('phone')} placeholder="+263 77 ..." className={inputCls} />
+        <label style={labelStyle} htmlFor="phone">Phone / WhatsApp (optional)</label>
+        <input
+          id="phone"
+          {...register('phone')}
+          placeholder="+263 77 ..."
+          className="apple-input"
+        />
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="service">
-            Service Needed *
-          </label>
-          <select id="service" {...register('service')} className={inputCls}>
+          <label style={labelStyle} htmlFor="service">Service Needed *</label>
+          <select
+            id="service"
+            {...register('service')}
+            className="apple-input"
+            style={errors.service ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
+          >
             <option value="" disabled>Select a service</option>
             <option value="software">Custom Software</option>
             <option value="chatbot">Chatbot Development</option>
             <option value="ai-agents">AI Agents</option>
             <option value="other">Other / Not Sure</option>
           </select>
-          {errors.service && <p className={errorCls}>{errors.service.message}</p>}
+          {errors.service && <p style={errorStyle}>{errors.service.message}</p>}
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="budget">
-            Budget (USD) *
-          </label>
-          <select id="budget" {...register('budget')} className={inputCls}>
+          <label style={labelStyle} htmlFor="budget">Budget (USD) *</label>
+          <select
+            id="budget"
+            {...register('budget')}
+            className="apple-input"
+            style={errors.budget ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
+          >
             <option value="" disabled>Select budget range</option>
             <option value="<1000">Under $1,000</option>
             <option value="1000-5000">$1,000 – $5,000</option>
             <option value="5000-20000">$5,000 – $20,000</option>
             <option value="20000+">$20,000+</option>
           </select>
-          {errors.budget && <p className={errorCls}>{errors.budget.message}</p>}
+          {errors.budget && <p style={errorStyle}>{errors.budget.message}</p>}
         </div>
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-medium text-gray-300" htmlFor="message">
-          Tell Us About Your Project *
-        </label>
+        <label style={labelStyle} htmlFor="message">Tell Us About Your Project *</label>
         <textarea
           id="message"
           {...register('message')}
           rows={5}
           placeholder="Describe what you need, your timeline, and any specific requirements..."
-          className={inputCls}
+          className="apple-input"
+          style={{
+            resize: 'vertical',
+            ...(errors.message ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}),
+          }}
         />
-        {errors.message && <p className={errorCls}>{errors.message.message}</p>}
+        {errors.message && <p style={errorStyle}>{errors.message.message}</p>}
       </div>
 
-      <Button
+      <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-violet-600 to-blue-600 py-6 text-base font-semibold text-white hover:from-violet-500 hover:to-blue-500 disabled:opacity-60"
+        className="apple-btn-primary w-full"
+        style={{
+          padding: '14px 22px',
+          fontSize: '17px',
+          opacity: isSubmitting ? 0.6 : 1,
+          cursor: isSubmitting ? 'not-allowed' : 'pointer',
+        }}
       >
         {isSubmitting ? 'Sending...' : 'Send Message — Get Free Quote'}
-      </Button>
+      </button>
 
-      <p className="text-center text-xs text-gray-500">
+      <p className="text-center text-xs" style={{ color: 'rgba(0,0,0,0.4)' }}>
         By submitting this form, you agree to our{' '}
-        <a href="/privacy-policy" className="text-violet-400 hover:underline">Privacy Policy</a>.
+        <a href="/privacy-policy" style={{ color: '#0066cc' }}>Privacy Policy</a>.
         We never share your data with third parties.
       </p>
     </form>

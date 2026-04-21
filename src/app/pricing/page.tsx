@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Badge } from '@/components/ui/badge'
-import { buttonVariants } from '@/lib/button-variants'
-import { cn } from '@/lib/utils'
-import { CheckCircle2, XCircle, ArrowRight, Zap, MessageSquare } from 'lucide-react'
+import { CheckCircle2, XCircle, ArrowRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Software & AI Agent Pricing — Zentrik Solutions Zimbabwe',
@@ -29,15 +26,6 @@ const faqSchema = {
   ],
 }
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
-    { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.zentriksolutions.com/pricing' },
-  ],
-}
-
 const plans = [
   {
     name: 'Starter',
@@ -45,8 +33,7 @@ const plans = [
     price: 150,
     period: 'one-time',
     description: 'Perfect for small businesses needing a professional online presence or a simple automation.',
-    color: 'from-blue-500 to-cyan-500',
-    borderColor: 'border-white/10',
+    popular: false,
     features: [
       { text: 'Business website (up to 5 pages)', included: true },
       { text: 'Mobile responsive design', included: true },
@@ -68,8 +55,7 @@ const plans = [
     price: 500,
     period: 'one-time',
     description: 'For growing businesses that want automation, chatbots, and a powerful web presence.',
-    color: 'from-violet-500 to-purple-600',
-    borderColor: 'border-violet-500/50',
+    popular: true,
     features: [
       { text: 'Business website (up to 10 pages)', included: true },
       { text: 'Mobile responsive design', included: true },
@@ -90,8 +76,7 @@ const plans = [
     price: 1500,
     period: 'starting from',
     description: 'Full-scale custom software, AI agents, and end-to-end automation for serious businesses.',
-    color: 'from-orange-500 to-pink-600',
-    borderColor: 'border-orange-500/30',
+    popular: false,
     features: [
       { text: 'Full custom web / mobile app', included: true },
       { text: 'Mobile responsive design', included: true },
@@ -118,119 +103,105 @@ const addOns = [
 ]
 
 const faqs = [
-  {
-    q: 'How do I pay?',
-    a: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.',
-  },
-  {
-    q: 'How long does a project take?',
-    a: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.',
-  },
-  {
-    q: 'Do you offer payment plans?',
-    a: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.',
-  },
-  {
-    q: 'What if I need something not listed here?',
-    a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours — no obligation.',
-  },
-  {
-    q: 'Do you work with clients outside Zimbabwe?',
-    a: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.',
-  },
+  { q: 'How do I pay?', a: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' },
+  { q: 'How long does a project take?', a: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' },
+  { q: 'Do you offer payment plans?', a: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' },
+  { q: 'What if I need something not listed here?', a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours — no obligation.' },
+  { q: 'Do you work with clients outside Zimbabwe?', a: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' },
 ]
 
 export default function PricingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      {/* ── Hero ──────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-16">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:64px_64px]" />
-        <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600/15 blur-[120px]" />
-        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <Badge variant="outline" className="mb-6 border-violet-500/40 bg-violet-500/10 text-violet-300">
-            Transparent Pricing
-          </Badge>
-          <h1 className="mb-4 text-5xl font-black text-white sm:text-6xl">
-            Simple, Fixed Pricing
+
+      {/* Hero */}
+      <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '80px' }}>
+        <div className="mx-auto max-w-[640px] px-5 text-center">
+          <p className="section-label mb-4" style={{ color: 'rgba(255,255,255,0.48)' }}>Transparent Pricing</p>
+          <h1
+            className="mb-4 font-semibold text-white"
+            style={{ fontSize: 'clamp(40px, 6vw, 56px)', lineHeight: 1.07, letterSpacing: '-0.28px' }}
+          >
+            Simple, Fixed Pricing.
           </h1>
-          <p className="text-lg text-gray-400">
-            No hidden fees. No surprises. Get a professional quote within 24 hours.
-            All prices in USD.
+          <p style={{ fontSize: '21px', lineHeight: 1.19, color: 'rgba(255,255,255,0.7)', letterSpacing: '0.231px' }}>
+            No hidden fees. No surprises. Free quote within 24 hours. All prices in USD.
           </p>
         </div>
       </section>
 
-      {/* ── Plans ─────────────────────────────────────────── */}
-      <section className="py-12 pb-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-3">
+      {/* Plans */}
+      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
+          <div className="grid gap-6 lg:grid-cols-3">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={cn(
-                  'relative flex flex-col rounded-3xl border bg-white/5 p-8 transition-all',
-                  plan.badge === 'Most Popular'
-                    ? 'border-violet-500/50 bg-violet-500/5 ring-1 ring-violet-500/30'
-                    : plan.borderColor
-                )}
+                className="relative flex flex-col rounded-2xl p-8"
+                style={{
+                  background: plan.popular ? '#000000' : '#ffffff',
+                  border: plan.popular ? '2px solid #0071e3' : '1px solid #d2d2d7',
+                }}
               >
-                {/* Badge */}
                 {plan.badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className={cn(
-                      'rounded-full px-4 py-1 text-xs font-bold text-white',
-                      plan.badge === 'Most Popular'
-                        ? 'bg-gradient-to-r from-violet-600 to-purple-600'
-                        : 'bg-gradient-to-r from-orange-500 to-pink-600'
-                    )}>
-                      ⭐ {plan.badge}
+                    <span
+                      className="rounded-full px-4 py-1 text-xs font-semibold text-white"
+                      style={{ background: '#0071e3' }}
+                    >
+                      {plan.badge}
                     </span>
                   </div>
                 )}
 
-                {/* Icon */}
-                <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${plan.color}`}>
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-
-                {/* Name + price */}
-                <h2 className="mb-1 text-xl font-bold text-white">{plan.name}</h2>
-                <p className="mb-4 text-sm text-gray-400">{plan.description}</p>
+                <h2
+                  className="mb-1 font-semibold"
+                  style={{ fontSize: '21px', color: plan.popular ? '#ffffff' : '#1d1d1f', letterSpacing: '0.231px' }}
+                >
+                  {plan.name}
+                </h2>
+                <p
+                  className="mb-5 text-sm leading-relaxed"
+                  style={{ color: plan.popular ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)' }}
+                >
+                  {plan.description}
+                </p>
 
                 <div className="mb-6">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider">{plan.period}</p>
-                  <p className="text-5xl font-black text-white">
+                  <p className="text-xs uppercase tracking-wider" style={{ color: plan.popular ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.4)' }}>
+                    {plan.period}
+                  </p>
+                  <p className="font-semibold" style={{ fontSize: '48px', letterSpacing: '-0.28px', color: plan.popular ? '#ffffff' : '#1d1d1f' }}>
                     ${plan.price.toLocaleString()}
-                    <span className="ml-1 text-lg font-normal text-gray-400">USD</span>
+                    <span
+                      className="ml-1 text-lg font-normal"
+                      style={{ color: plan.popular ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)' }}
+                    >
+                      USD
+                    </span>
                   </p>
                 </div>
 
-                {/* CTA */}
                 <Link
                   href={plan.ctaHref}
-                  className={cn(
-                    'mb-8 flex items-center justify-center gap-2 rounded-xl py-3 text-sm font-bold text-white transition-all',
-                    plan.badge === 'Most Popular'
-                      ? 'bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500'
-                      : 'border border-white/20 bg-white/10 hover:bg-white/15'
-                  )}
+                  className={plan.popular ? 'apple-btn-primary mb-8 text-center' : 'apple-btn-outline mb-8 text-center'}
                 >
-                  {plan.cta} <ArrowRight className="h-4 w-4" />
+                  {plan.cta} <ArrowRight className="ml-1 inline-block h-4 w-4" />
                 </Link>
 
-                {/* Features */}
                 <ul className="flex-1 space-y-3">
                   {plan.features.map((f) => (
                     <li key={f.text} className="flex items-start gap-3">
                       {f.included ? (
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-violet-400" />
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: '#0071e3' }} />
                       ) : (
-                        <XCircle className="mt-0.5 h-4 w-4 shrink-0 text-gray-600" />
+                        <XCircle className="mt-0.5 h-4 w-4 shrink-0" style={{ color: 'rgba(0,0,0,0.2)' }} />
                       )}
-                      <span className={cn('text-sm', f.included ? 'text-gray-300' : 'text-gray-600')}>
+                      <span
+                        className="text-sm"
+                        style={{ color: f.included ? (plan.popular ? 'rgba(255,255,255,0.8)' : 'rgba(0,0,0,0.8)') : (plan.popular ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.3)') }}
+                      >
                         {f.text}
                       </span>
                     </li>
@@ -240,95 +211,98 @@ export default function PricingPage() {
             ))}
           </div>
 
-          {/* Money back note */}
-          <p className="mt-8 text-center text-sm text-gray-500">
-            💳 50% deposit to start · Balance on delivery · EcoCash, Bank Transfer & Card accepted
+          <p className="mt-6 text-center text-sm" style={{ color: 'rgba(0,0,0,0.48)' }}>
+            50% deposit to start · Balance on delivery · EcoCash, Bank Transfer & Card accepted
           </p>
         </div>
       </section>
 
-      {/* ── Add-ons ───────────────────────────────────────── */}
-      <section className="border-y border-white/10 bg-white/[0.02] py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      {/* Add-ons */}
+      <section style={{ background: '#ffffff', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[980px] px-5">
           <div className="mb-12 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              Add-ons & Extras
-            </Badge>
-            <h2 className="text-4xl font-black text-white">Bolt-On Services</h2>
-            <p className="mt-3 text-gray-400">Add any of these to your package or order standalone.</p>
+            <p className="section-label mb-2">Add-ons & Extras</p>
+            <h2
+              className="font-semibold"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+            >
+              Bolt-On Services
+            </h2>
+            <p className="mt-3 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)' }}>
+              Add any of these to your package or order standalone.
+            </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {addOns.map((addon) => (
               <div
                 key={addon.name}
-                className="flex flex-col rounded-2xl border border-white/10 bg-white/5 p-5 hover:border-violet-500/30 transition-colors"
+                className="flex flex-col rounded-lg p-6 transition-shadow hover:shadow-md"
+                style={{ background: '#f5f5f7', border: '1px solid #d2d2d7' }}
               >
-                <p className="mb-1 font-semibold text-white">{addon.name}</p>
-                <p className="mb-3 flex-1 text-sm text-gray-400">{addon.desc}</p>
-                <p className="text-lg font-black text-violet-400">{addon.price}</p>
+                <p className="mb-1 font-semibold" style={{ color: '#1d1d1f', fontSize: '14px' }}>{addon.name}</p>
+                <p className="mb-3 flex-1 text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>{addon.desc}</p>
+                <p className="font-semibold" style={{ fontSize: '17px', color: '#0071e3' }}>{addon.price}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── FAQs ──────────────────────────────────────────── */}
-      <section className="py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      {/* FAQs */}
+      <section style={{ background: '#f5f5f7', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[640px] px-5">
           <div className="mb-12 text-center">
-            <Badge variant="outline" className="mb-4 border-violet-500/40 bg-violet-500/10 text-violet-300">
-              FAQ
-            </Badge>
-            <h2 className="text-4xl font-black text-white">Common Questions</h2>
+            <p className="section-label mb-2">FAQ</p>
+            <h2
+              className="font-semibold"
+              style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px', color: '#1d1d1f' }}
+            >
+              Common Questions
+            </h2>
           </div>
 
           <div className="space-y-4">
             {faqs.map((faq) => (
               <div
                 key={faq.q}
-                className="rounded-2xl border border-white/10 bg-white/5 p-6"
+                className="rounded-lg p-6"
+                style={{ background: '#ffffff', border: '1px solid #d2d2d7' }}
               >
-                <h3 className="mb-2 font-bold text-white">{faq.q}</h3>
-                <p className="text-sm leading-relaxed text-gray-400">{faq.a}</p>
+                <h3 className="mb-2 font-semibold" style={{ color: '#1d1d1f', fontSize: '17px' }}>{faq.q}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(0,0,0,0.6)' }}>{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────── */}
-      <section className="pb-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-violet-500/30 bg-gradient-to-br from-violet-600/20 to-blue-600/20 px-8 py-14 text-center">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="h-48 w-48 rounded-full bg-violet-600/30 blur-[60px]" />
-            </div>
-            <div className="relative">
-              <h2 className="mb-3 text-3xl font-black text-white sm:text-4xl">
-                Not sure which plan fits?
-              </h2>
-              <p className="mb-8 text-gray-300">
-                WhatsApp us right now. We will give you an honest recommendation and a free quote — no strings attached.
-              </p>
-              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <a
-                  href="https://wa.me/263773934610?text=Hi%20Zentrik%2C%20I%27d%20like%20to%20get%20a%20quote."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-green-500 px-6 py-3 font-bold text-white hover:bg-green-400 transition-colors"
-                >
-                  <MessageSquare className="h-5 w-5" />
-                  WhatsApp Us Now
-                </a>
-                <Link
-                  href="/contact"
-                  className={cn(buttonVariants({ variant: 'outline' }), 'border-white/20 bg-white/10 text-white hover:bg-white/15')}
-                >
-                  Send Us a Message
-                </Link>
-              </div>
-            </div>
+      {/* CTA */}
+      <section style={{ background: '#000000', padding: '80px 0' }}>
+        <div className="mx-auto max-w-[640px] px-5 text-center">
+          <h2
+            className="mb-3 font-semibold text-white"
+            style={{ fontSize: '40px', lineHeight: 1.10, letterSpacing: '-0.28px' }}
+          >
+            Not sure which plan fits?
+          </h2>
+          <p className="mb-8 text-[17px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+            WhatsApp us right now. We will give you an honest recommendation and a free quote — no strings attached.
+          </p>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a
+              href="https://wa.me/263773934610?text=Hi%20Zentrik%2C%20I%27d%20like%20to%20get%20a%20quote."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition-opacity hover:opacity-88"
+              style={{ background: '#25d366', fontSize: '17px' }}
+            >
+              <MessageSquare className="h-5 w-5" />
+              WhatsApp Us Now
+            </a>
+            <Link href="/contact" className="apple-btn-outline" style={{ color: '#2997ff', borderColor: '#2997ff' }}>
+              Send Us a Message
+            </Link>
           </div>
         </div>
       </section>
