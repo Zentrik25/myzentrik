@@ -5,14 +5,18 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { toast } from 'sonner'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, Loader2 } from 'lucide-react'
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   phone: z.string().optional(),
-  service: z.enum(['software', 'chatbot', 'ai-agents', 'other']),
-  budget: z.enum(['<1000', '1000-5000', '5000-20000', '20000+']),
+  service: z.enum(['software', 'chatbot', 'ai-agents', 'other'], {
+    error: 'Please select a service',
+  }),
+  budget: z.enum(['<1000', '1000-5000', '5000-20000', '20000+'], {
+    error: 'Please select a budget range',
+  }),
   message: z.string().min(20, 'Please describe your project in at least 20 characters'),
 })
 
@@ -29,14 +33,25 @@ export default function ContactForm() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) })
 
   async function onSubmit(values: FormValues) {
-    const subject = encodeURIComponent(`New Project Enquiry: ${values.service} from ${values.name}`)
-    const body = encodeURIComponent(
-      `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone || 'Not provided'}\nService: ${values.service}\nBudget: ${values.budget}\n\nMessage:\n${values.message}`
-    )
-    window.location.href = `mailto:info@zentriksolutions.com?subject=${subject}&body=${body}`
-    toast.success('Opening your email client...')
-    setSent(true)
-    reset()
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        toast.error(data.error ?? 'Something went wrong. Please try WhatsApp.')
+        return
+      }
+
+      setSent(true)
+      reset()
+    } catch {
+      toast.error('Network error. Please try again or contact us on WhatsApp.')
+    }
   }
 
   if (sent) {
@@ -49,7 +64,7 @@ export default function ContactForm() {
           <CheckCircle2 className="h-8 w-8" style={{ color: '#34c759' }} />
         </div>
         <h3 className="mb-2 font-semibold" style={{ fontSize: '21px', color: '#1d1d1f' }}>
-          Message Sent!
+          Message Received!
         </h3>
         <p style={{ color: 'rgba(0,0,0,0.6)' }}>
           We&apos;ll get back to you within 24 hours.
@@ -125,6 +140,7 @@ export default function ContactForm() {
             id="service"
             {...register('service')}
             className="apple-input"
+            defaultValue=""
             style={errors.service ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
           >
             <option value="" disabled>Select a service</option>
@@ -141,6 +157,7 @@ export default function ContactForm() {
             id="budget"
             {...register('budget')}
             className="apple-input"
+            defaultValue=""
             style={errors.budget ? { borderColor: '#ff3b30', boxShadow: '0 0 0 3px rgba(255,59,48,0.2)' } : {}}
           >
             <option value="" disabled>Select budget range</option>
@@ -176,11 +193,19 @@ export default function ContactForm() {
         style={{
           padding: '14px 22px',
           fontSize: '17px',
-          opacity: isSubmitting ? 0.6 : 1,
+          opacity: isSubmitting ? 0.7 : 1,
           cursor: isSubmitting ? 'not-allowed' : 'pointer',
+          gap: '8px',
         }}
       >
-        {isSubmitting ? 'Sending...' : 'Send Message and Get Free Quote'}
+        {isSubmitting ? (
+          <>
+            <Loader2 className="inline-block h-4 w-4 animate-spin mr-2" />
+            Sending...
+          </>
+        ) : (
+          'Send Message and Get Free Quote'
+        )}
       </button>
 
       <p className="text-center text-xs" style={{ color: 'rgba(0,0,0,0.4)' }}>
