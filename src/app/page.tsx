@@ -111,8 +111,12 @@ export default function HomePage() {
           <FadeIn>
             <p className="section-label mb-5" style={{ color: 'rgba(255,255,255,0.5)', minHeight: '1.2em' }}>
               <TypewriterText
-                words={["Zimbabwe's Leading AI & Software Studio"]}
-                loop={false}
+                words={[
+                  "Zimbabwe's Leading AI & Software Studio",
+                  'Custom Software Built for Africa',
+                  'WhatsApp Chatbots That Never Sleep',
+                  'AI Agents for the Modern Business',
+                ]}
                 style={{ color: 'rgba(255,255,255,0.5)' }}
               />
             </p>

@@ -19,11 +19,11 @@ export function TypewriterText({ words, className, style, loop = true }: Typewri
 
     if (phase === 'typing') {
       if (displayed.length < current.length) {
-        const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 55)
+        const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 90)
         return () => clearTimeout(t)
       } else {
         if (!loop) return // stay here — done
-        const t = setTimeout(() => setPhase('pause'), 1800)
+        const t = setTimeout(() => setPhase('pause'), 2200)
         return () => clearTimeout(t)
       }
     }
@@ -35,7 +35,7 @@ export function TypewriterText({ words, className, style, loop = true }: Typewri
 
     if (phase === 'deleting') {
       if (displayed.length > 0) {
-        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30)
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45)
         return () => clearTimeout(t)
       } else {
         setWordIndex((i) => (i + 1) % words.length)
