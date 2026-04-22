@@ -1,16 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, MessageSquare } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'FAQ: Software, Chatbots & AI Agents',
+  title: 'FAQ: Software, Chatbots & AI Agents | Zentrik Solutions',
   description: 'Answers to common questions about our software development, WhatsApp chatbot, and AI agent services. Pricing, timelines, payments, and more.',
   alternates: { canonical: 'https://www.zentriksolutions.com/faq' },
   openGraph: {
-    title: 'FAQ: Zentrik Solutions',
-    description: 'Got questions? We have answers. Everything you need to know about working with Zentrik Solutions.',
+    type: 'website',
+    siteName: 'Zentrik Solutions',
+    title: 'FAQ: Software, Chatbots & AI Agents | Zentrik Solutions',
+    description: 'Got questions? We have answers. Everything you need to know about pricing, timelines, and working with Zentrik Solutions.',
     url: 'https://www.zentriksolutions.com/faq',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions FAQ' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FAQ: Software, Chatbots & AI Agents | Zentrik Solutions',
+    description: 'Got questions? We have answers. Everything you need to know about pricing, timelines, and working with Zentrik Solutions.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -18,11 +26,22 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
+    // Services
     { '@type': 'Question', name: 'What services does Zentrik Solutions offer?', acceptedAnswer: { '@type': 'Answer', text: 'We specialise in three core services: custom software development (web apps, mobile apps, SaaS platforms), WhatsApp Business API chatbot development, and AI agent development. All built for businesses across Zimbabwe, Africa, and globally.' } },
-    { '@type': 'Question', name: 'Do you build WhatsApp chatbots?', acceptedAnswer: { '@type': 'Answer', text: 'Yes.WhatsApp chatbots are one of our core specialities. We build fully automated WhatsApp Business API chatbots for customer support, bookings, lead capture, and sales. Bots run 24/7 and can handle hundreds of conversations simultaneously.' } },
-    { '@type': 'Question', name: 'How much does a WhatsApp chatbot cost?', acceptedAnswer: { '@type': 'Answer', text: 'A standalone WhatsApp chatbot starts from $150 USD for simple FAQ bots, up to $300–$500 for advanced bots with booking flows, payment confirmations, and CRM integration. Custom pricing available for enterprise needs.' } },
-    { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'Simple websites: 3–5 business days. WhatsApp chatbots: 5–10 business days. Full software platforms: 3–8 weeks depending on complexity. We always give you a clear timeline in our proposal before work begins.' } },
+    { '@type': 'Question', name: 'Do you build WhatsApp chatbots?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. WhatsApp chatbots are one of our core specialities. We build fully automated WhatsApp Business API chatbots for customer support, bookings, lead capture, and sales. Bots run 24/7 and can handle hundreds of conversations simultaneously.' } },
+    { '@type': 'Question', name: 'What is an AI agent and how can it help my business?', acceptedAnswer: { '@type': 'Answer', text: 'An AI agent is an autonomous software system that can perform complex tasks on its own — such as researching leads, responding to customer queries, processing documents, or automating entire workflows. Unlike a simple chatbot, AI agents reason, make decisions, and take multi-step actions without human input.' } },
+    { '@type': 'Question', name: 'What technologies do you use?', acceptedAnswer: { '@type': 'Answer', text: 'Our stack includes Next.js, React, TypeScript, Node.js, Python, Supabase, PostgreSQL, React Native, Vercel, AWS, WhatsApp Business API, OpenAI GPT-4, Claude AI, Gemini, LangChain, and n8n for workflow automation.' } },
+    // Pricing & Payment
+    { '@type': 'Question', name: 'How much does a WhatsApp chatbot cost?', acceptedAnswer: { '@type': 'Answer', text: 'A standalone WhatsApp chatbot starts from $150 USD for simple FAQ bots, up to $300–$500 for advanced bots with booking flows, payment confirmations, and CRM integration. Custom pricing is available for enterprise needs.' } },
     { '@type': 'Question', name: 'How do I pay?', acceptedAnswer: { '@type': 'Answer', text: 'We accept EcoCash, USD bank transfer, and international card payments. A 50% deposit is required to begin, with the remaining 50% due on delivery.' } },
+    { '@type': 'Question', name: 'Do you offer payment plans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. For projects over $500 USD we can arrange a 3-instalment payment plan. Contact us to discuss what works for your budget.' } },
+    // Project & Process
+    { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'Simple websites: 3–5 business days. WhatsApp chatbots: 5–10 business days. Full software platforms: 3–8 weeks depending on complexity. We always provide a clear timeline in our proposal before work begins.' } },
+    { '@type': 'Question', name: 'Will I own the code after the project?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Once the project is paid in full, you own 100% of the code, design, and all associated intellectual property. We hand over all source files and credentials at project close.' } },
+    { '@type': 'Question', name: 'Do you provide support after launch?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. We offer optional monthly maintenance packages from $30/month, covering updates, bug fixes, uptime monitoring, and priority support. Enterprise plans include 3 months of free post-launch support.' } },
+    // Working With Us
+    { '@type': 'Question', name: 'Do you work with clients outside Zimbabwe?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We work with clients across Africa, the UK, USA, and beyond. All communication is via WhatsApp, Zoom, or email, and all invoicing is in USD.' } },
+    { '@type': 'Question', name: 'How do I get started?', acceptedAnswer: { '@type': 'Answer', text: 'WhatsApp us at +263 77 393 4610 or fill in the contact form on our website. We will reply within 24 hours with a free quote and a clear plan.' } },
   ],
 }
 
@@ -124,6 +143,42 @@ export default function FAQPage() {
                     </div>
                   ))}
                 </div>
+
+                {cat.label === 'Pricing & Payment' && (
+                  <div
+                    className="mt-4 flex items-center justify-between rounded-lg px-5 py-4"
+                    style={{ background: '#ffffff', border: '1px solid #d2d2d7' }}
+                  >
+                    <p className="text-sm font-medium" style={{ color: '#1d1d1f' }}>
+                      Want exact figures before you reach out?
+                    </p>
+                    <Link
+                      href="/pricing"
+                      className="flex items-center gap-1 text-sm font-semibold"
+                      style={{ color: '#0066cc' }}
+                    >
+                      See full pricing <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                )}
+
+                {cat.label === 'Services' && (
+                  <div
+                    className="mt-4 flex items-center justify-between rounded-lg px-5 py-4"
+                    style={{ background: '#ffffff', border: '1px solid #d2d2d7' }}
+                  >
+                    <p className="text-sm font-medium" style={{ color: '#1d1d1f' }}>
+                      Want a detailed breakdown of each service?
+                    </p>
+                    <Link
+                      href="/services"
+                      className="flex items-center gap-1 text-sm font-semibold"
+                      style={{ color: '#0066cc' }}
+                    >
+                      Explore services <ArrowUpRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                )}
               </div>
             ))}
           </div>

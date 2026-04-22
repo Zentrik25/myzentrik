@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
+import type React from 'react'
 import Link from 'next/link'
-import { ArrowUpRight, Bot, Newspaper } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Bot, Newspaper } from 'lucide-react'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
   description: 'See the real websites, chatbots, and AI tools built by Zentrik Solutions for clients across Zimbabwe and Africa.',
   alternates: { canonical: 'https://www.zentriksolutions.com/work' },
   openGraph: {
+    type: 'website',
+    siteName: 'Zentrik Solutions',
     title: 'Our Work: Projects Built by Zentrik Solutions',
     description: 'Real projects. Real results. See what Zentrik Solutions has built for clients across Zimbabwe and Africa.',
     url: 'https://www.zentriksolutions.com/work',
@@ -15,12 +18,36 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Our Work: Projects Built by Zentrik Solutions',
+    description: 'Real projects. Real results. See what Zentrik Solutions has built for clients across Zimbabwe and Africa.',
     images: ['/opengraph-image'],
   },
 }
 
-const projects = [
+// Typed to support full case study expansion: add outcomeMetrics, clientIndustry,
+// duration, testimonialQuote, and a slug to unlock /work/[slug] detail pages.
+type Project = {
+  slug: string
+  name: string
+  url: string
+  displayUrl: string
+  category: string
+  type: 'website' | 'chatbot' | 'software' | 'ai-agent'
+  tags: string[]
+  description: string
+  highlights: string[]
+  Icon: React.ComponentType<{ className?: string }>
+  status: 'Live' | 'In Progress' | 'Completed'
+  // Add when available:
+  // clientIndustry: string
+  // duration: string
+  // outcomeMetrics: { label: string; value: string }[]
+  // testimonialQuote?: { body: string; author: string; role: string }
+}
+
+const projects: Project[] = [
   {
+    slug: 'the-granite-post',
     name: 'The Granite Post',
     url: 'https://www.thegranite.co.zw',
     displayUrl: 'thegranite.co.zw',
@@ -39,6 +66,7 @@ const projects = [
     status: 'Live',
   },
   {
+    slug: 'molly-whatsapp-ai',
     name: 'Molly WhatsApp AI Chatbot',
     url: 'https://wa.me/263712482084',
     displayUrl: '+263 712 482 084',
@@ -46,7 +74,7 @@ const projects = [
     type: 'chatbot',
     tags: ['WhatsApp Business API', 'AI', 'Node.js', 'Automation'],
     description:
-      'Molly is a fully autonomous WhatsApp AI chatbot built by Zentrik Solutions. She handles customer enquiries, bookings, FAQs, and lead capture. 24 hours a day, 7 days a week, with no human intervention needed.',
+      'Molly is a fully autonomous WhatsApp AI chatbot built by Zentrik Solutions. She handles customer enquiries, bookings, FAQs, and lead capture — 24 hours a day, 7 days a week, with no human intervention needed.',
     highlights: [
       '24/7 automated customer support on WhatsApp',
       'Natural language understanding, no rigid menus',
@@ -57,6 +85,15 @@ const projects = [
     status: 'Live',
   },
 ]
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'Our Work', item: 'https://www.zentriksolutions.com/work' },
+  ],
+}
 
 const workSchema = {
   '@context': 'https://schema.org',
@@ -77,6 +114,7 @@ const workSchema = {
 export default function WorkPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }} />
 
       {/* Hero */}
@@ -263,9 +301,9 @@ export default function WorkPage() {
                           <iframe
                             src={project.url}
                             className="h-[640px] w-[200%] origin-top-left scale-50 border-0"
-                            title={`${project.name} preview`}
+                            title={`${project.name} — live website preview`}
                             loading="lazy"
-                            sandbox="allow-scripts allow-same-origin"
+                            sandbox="allow-scripts"
                           />
                           <a
                             href={project.url}
@@ -298,9 +336,14 @@ export default function WorkPage() {
             <p className="mb-6 text-[17px]" style={{ color: 'rgba(0,0,0,0.6)' }}>
               We build websites, WhatsApp chatbots, and AI agents for businesses across Zimbabwe and beyond.
             </p>
-            <Link href="/contact" className="apple-btn-primary">
-              Start Your Project <ArrowUpRight className="ml-2 inline-block h-4 w-4" />
-            </Link>
+            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link href="/contact" className="apple-btn-primary">
+                Start Your Project <ArrowUpRight className="ml-2 inline-block h-4 w-4" />
+              </Link>
+              <Link href="/services" className="apple-btn-outline">
+                Explore Services <ArrowRight className="ml-1 inline-block h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -1,16 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Target, Eye, Heart } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Target, Eye, Heart } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About Zentrik Solutions: Zimbabwe Software & AI Company',
   description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software, chatbot development, and AI agents, serving clients across Africa, the UK, and USA.',
   alternates: { canonical: 'https://www.zentriksolutions.com/about' },
   openGraph: {
+    type: 'website',
+    siteName: 'Zentrik Solutions',
     title: 'About Zentrik Solutions: Zimbabwe-Based Software & AI Company',
     description: 'Born in Zimbabwe, built for the world. We build custom software, chatbots, and AI agents for businesses across Africa and globally.',
     url: 'https://www.zentriksolutions.com/about',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'About Zentrik Solutions' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Zentrik Solutions: Zimbabwe-Based Software & AI Company',
+    description: 'Born in Zimbabwe, built for the world. Custom software, chatbots, and AI agents for businesses across Africa and globally.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -85,12 +93,12 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-[17px] leading-relaxed" style={{ color: 'rgba(0,0,0,0.7)' }}>
                 <p>
-                  Zentrik Solutions was founded with one belief: African businesses deserve
-                  access to the same cutting-edge technology as companies in Silicon Valley,
-                  without the Silicon Valley price tag.
+                  Zentrik Solutions was founded in 2021 with one belief: African businesses
+                  deserve access to the same cutting-edge technology as companies in Silicon
+                  Valley, without the Silicon Valley price tag.
                 </p>
                 <p>
-                  We started by building custom software for local businesses in Harare.
+                  We started by building custom software for local businesses in Zimbabwe.
                   Today we develop AI agents, enterprise platforms, and intelligent chatbots
                   for clients across Zimbabwe, South Africa, Nigeria, the UK, and the USA.
                 </p>
@@ -99,6 +107,14 @@ export default function AboutPage() {
                   solving real problems. We don&apos;t just write code. We build solutions
                   that make a measurable difference to your bottom line.
                 </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/work" className="apple-btn-primary">
+                  See Our Portfolio <ArrowUpRight className="ml-2 inline-block h-4 w-4" />
+                </Link>
+                <Link href="/faq" className="apple-btn-outline">
+                  Common Questions
+                </Link>
               </div>
             </div>
 
@@ -219,9 +235,14 @@ export default function AboutPage() {
           <p className="mb-8 text-[17px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
             Ready to start your project? We&apos;d love to hear from you.
           </p>
-          <Link href="/contact" className="apple-btn-primary">
-            Get in Touch <ArrowRight className="ml-2 inline-block h-4 w-4" />
-          </Link>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact" className="apple-btn-primary">
+              Get in Touch <ArrowRight className="ml-2 inline-block h-4 w-4" />
+            </Link>
+            <Link href="/faq" className="apple-btn-outline" style={{ color: '#2997ff', borderColor: '#2997ff' }}>
+              Read FAQ
+            </Link>
+          </div>
         </div>
       </section>
     </>

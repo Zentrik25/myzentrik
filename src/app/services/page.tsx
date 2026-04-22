@@ -3,14 +3,22 @@ import Link from 'next/link'
 import { CheckCircle2, ArrowRight, Code2, Bot, Brain } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Software, Chatbot & AI Agent Development Services',
-  description: 'Custom software development, WhatsApp chatbots, and AI agents built by Zentrik Solutions for businesses across Africa and beyond. Free quote in 24 hours.',
+  title: 'Software, Chatbot & AI Agent Development Services | Africa',
+  description: 'Custom software development, WhatsApp chatbots, and AI agents built by Zentrik Solutions for businesses across Africa and beyond. Enterprise-grade quality. Free quote in 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/services' },
   openGraph: {
-    title: 'Software, Chatbot & AI Agent Services: Zentrik Solutions',
-    description: 'Custom software, WhatsApp chatbots, and AI agents for African businesses. Enterprise-grade quality at accessible prices.',
+    type: 'website',
+    siteName: 'Zentrik Solutions',
+    title: 'Software, Chatbot & AI Agent Services | Zentrik Solutions',
+    description: 'Custom software, WhatsApp chatbots, and AI agents for African businesses. Enterprise-grade quality at accessible prices. Free quote in 24 hours.',
     url: 'https://www.zentriksolutions.com/services',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions Services: Software, Chatbots & AI Agents' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Software, Chatbot & AI Agent Services | Zentrik Solutions',
+    description: 'Custom software, WhatsApp chatbots, and AI agents for African businesses. Enterprise-grade quality at accessible prices.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -191,11 +199,16 @@ export default function ServicesPage() {
             Not sure which service you need?
           </h2>
           <p className="mb-8 text-[17px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-            Book a free 30-minute discovery call. We&apos;ll listen, advise, and give you a clear recommendation.no obligation.
+            Book a free 30-minute discovery call. We&apos;ll listen, advise, and give you a clear recommendation — no obligation.
           </p>
-          <Link href="/contact" className="apple-btn-primary">
-            Book a Free Call <ArrowRight className="ml-2 inline-block h-4 w-4" />
-          </Link>
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact" className="apple-btn-primary">
+              Book a Free Call <ArrowRight className="ml-2 inline-block h-4 w-4" />
+            </Link>
+            <Link href="/pricing" className="apple-btn-outline" style={{ color: '#2997ff', borderColor: '#2997ff' }}>
+              View Pricing
+            </Link>
+          </div>
         </div>
       </section>
     </>

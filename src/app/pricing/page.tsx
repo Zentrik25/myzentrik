@@ -3,14 +3,22 @@ import Link from 'next/link'
 import { CheckCircle2, XCircle, ArrowRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Software & AI Agent Pricing: Zentrik Solutions Zimbabwe',
+  title: 'Pricing: Software, Chatbots & AI Agents | Zentrik Solutions',
   description: 'Transparent, fixed pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees. Free quote within 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/pricing' },
   openGraph: {
+    type: 'website',
+    siteName: 'Zentrik Solutions',
     title: 'Pricing: Custom Software, Chatbots & AI Agents | Zentrik Solutions',
-    description: 'Fixed, transparent pricing for custom software, WhatsApp chatbots, and AI agents. Starter $150 · Professional $500 · Enterprise from $1,500.',
+    description: 'Fixed, transparent pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees. Free quote within 24 hours.',
     url: 'https://www.zentriksolutions.com/pricing',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions Pricing' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pricing: Custom Software, Chatbots & AI Agents | Zentrik Solutions',
+    description: 'Fixed, transparent pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -20,6 +28,68 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
     { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.zentriksolutions.com/pricing' },
+  ],
+}
+
+const offerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Zentrik Solutions Pricing Plans',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'Product',
+        name: 'Starter Plan',
+        description: 'Business website up to 5 pages with mobile-responsive design, contact form, WhatsApp button, basic SEO, and Google Analytics integration.',
+        offers: {
+          '@type': 'Offer',
+          price: '150',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: 'https://www.zentriksolutions.com/pricing',
+          seller: { '@type': 'Organization', name: 'Zentrik Solutions' },
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'Product',
+        name: 'Professional Plan',
+        description: 'Business website up to 10 pages, advanced SEO, Google Analytics, 3 revision rounds, and WhatsApp chatbot with up to 10 flows.',
+        offers: {
+          '@type': 'Offer',
+          price: '500',
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: 'https://www.zentriksolutions.com/pricing',
+          seller: { '@type': 'Organization', name: 'Zentrik Solutions' },
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'Product',
+        name: 'Enterprise Plan',
+        description: 'Full custom web or mobile app, WhatsApp chatbot with unlimited flows, custom AI agent integration, admin panel, CMS, and 3 months post-launch support.',
+        offers: {
+          '@type': 'Offer',
+          priceSpecification: {
+            '@type': 'PriceSpecification',
+            minPrice: '1500',
+            priceCurrency: 'USD',
+          },
+          availability: 'https://schema.org/InStock',
+          url: 'https://www.zentriksolutions.com/pricing',
+          seller: { '@type': 'Organization', name: 'Zentrik Solutions' },
+        },
+      },
+    },
   ],
 }
 
@@ -122,6 +192,7 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
@@ -284,6 +355,12 @@ export default function PricingPage() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-center text-sm" style={{ color: 'rgba(0,0,0,0.5)' }}>
+            More questions?{' '}
+            <Link href="/faq" className="font-medium" style={{ color: '#0066cc' }}>
+              Browse the full FAQ page
+            </Link>
+          </p>
         </div>
       </section>
 
@@ -314,6 +391,13 @@ export default function PricingPage() {
               Send Us a Message
             </Link>
           </div>
+          <p className="mt-6 text-sm" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Not sure what you need?{' '}
+            <Link href="/services" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'underline' }}>
+              Browse our services
+            </Link>{' '}
+            first.
+          </p>
         </div>
       </section>
     </>

@@ -1,18 +1,28 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock } from 'lucide-react'
+import { ArrowRight, CheckCircle2, Star, ArrowUpRight, Code2, Bot, Brain, Zap, Globe, Shield, Clock, Newspaper } from 'lucide-react'
 import { FadeIn, FadeInStagger, FadeInItem } from '@/components/FadeIn'
 import { HeroBackground } from '@/components/HeroBackground'
 import { TypewriterText } from '@/components/TypewriterText'
 import { CountUp } from '@/components/CountUp'
 
 export const metadata: Metadata = {
+  title: 'Zentrik Solutions: Software, Chatbots & AI Agents | Zimbabwe',
+  description: 'Zimbabwe-based software studio building custom software, WhatsApp chatbots, and AI agents that automate and grow your business. Serving clients across Africa and globally.',
   alternates: { canonical: 'https://www.zentriksolutions.com' },
   openGraph: {
-    title: 'Zentrik Solutions: Software, Chatbots & AI Agents',
-    description: 'Zentrik Solutions builds custom software, intelligent chatbots, and AI agents that automate and grow your business. Based in Zimbabwe, serving globally.',
+    type: 'website',
+    siteName: 'Zentrik Solutions',
+    title: 'Zentrik Solutions: Software, Chatbots & AI Agents | Zimbabwe',
+    description: 'Zimbabwe-based software studio building custom software, WhatsApp chatbots, and AI agents that automate and grow your business. Serving clients across Africa and globally.',
     url: 'https://www.zentriksolutions.com',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Zentrik Solutions: Software, Chatbots & AI Agents' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Zentrik Solutions: Software, Chatbots & AI Agents | Zimbabwe',
+    description: 'Zimbabwe-based software studio building custom software, WhatsApp chatbots, and AI agents. Serving clients across Africa and globally.',
+    images: ['/opengraph-image'],
   },
 }
 
@@ -23,11 +33,11 @@ const organizationSchema = {
   url: 'https://www.zentriksolutions.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.zentriksolutions.com/og-image.png',
+    url: 'https://www.zentriksolutions.com/opengraph-image',
     width: 1200,
     height: 630,
   },
-  image: 'https://www.zentriksolutions.com/og-image.png',
+  image: 'https://www.zentriksolutions.com/opengraph-image',
   description: 'Zimbabwe-based software company specialising in custom software development, WhatsApp chatbot development, and AI agents for businesses across Africa and globally.',
   foundingDate: '2021',
   address: {
@@ -45,14 +55,6 @@ const organizationSchema = {
     telephone: '+263773934610',
     contactType: 'customer service',
     availableLanguage: 'English',
-    contactOption: 'TollFree',
-  },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '3',
-    bestRating: '5',
-    worstRating: '1',
   },
   review: [
     { '@type': 'Review', author: { '@type': 'Person', name: 'Chidi Okafor' }, reviewBody: 'Zentrik built our entire e-commerce platform in 6 weeks. Quality was exceptional, delivered on time. Sales doubled within a month.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' } },
@@ -346,8 +348,8 @@ export default function HomePage() {
 
           <FadeInStagger className="grid gap-5 sm:grid-cols-2">
             {[
-              { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', emoji: '📰' },
-              { name: 'Molly WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', emoji: '🤖' },
+              { name: 'The Granite Post', url: 'https://www.thegranite.co.zw', display: 'thegranite.co.zw', cat: 'News Platform', Icon: Newspaper },
+              { name: 'Molly WhatsApp AI', url: 'https://wa.me/263712482084', display: '+263 712 482 084', cat: 'AI Chatbot', Icon: Bot },
             ].map((p) => (
               <FadeInItem key={p.name}>
                 <a
@@ -357,7 +359,12 @@ export default function HomePage() {
                   className="apple-card block h-full"
                   style={{ textDecoration: 'none' }}
                 >
-                  <div className="mb-3 text-3xl">{p.emoji}</div>
+                  <div
+                    className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
+                    style={{ background: '#0071e3' }}
+                  >
+                    <p.Icon className="h-5 w-5 text-white" />
+                  </div>
                   <div className="mb-1 flex items-center gap-2">
                     <h3 className="font-semibold" style={{ fontSize: '17px', color: '#1d1d1f' }}>{p.name}</h3>
                     <span
@@ -399,7 +406,7 @@ export default function HomePage() {
             {testimonials.map((t) => (
               <FadeInItem key={t.name}>
                 <div className="apple-card-dark h-full">
-                  <div className="mb-4 flex gap-1">
+                  <div className="mb-4 flex gap-1" role="img" aria-label={`${t.stars} out of 5 stars`}>
                     {Array.from({ length: t.stars }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                     ))}
