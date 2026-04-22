@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   },
 }
 
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Zentrik Solutions',
+  url: 'https://www.zentriksolutions.com/about',
+  description: 'Zentrik Solutions is a Zimbabwe-based software company specialising in custom software, chatbot development, and AI agents.',
+}
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -45,6 +53,7 @@ export default function AboutPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
 
       {/* Hero */}
       <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>

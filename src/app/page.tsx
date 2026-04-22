@@ -18,19 +18,59 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'LocalBusiness'],
   name: 'Zentrik Solutions',
   url: 'https://www.zentriksolutions.com',
-  logo: 'https://www.zentriksolutions.com/og-image.png',
-  description: 'Zimbabwe-based software company specialising in custom software development, chatbot development, and AI agents.',
-  address: { '@type': 'PostalAddress', addressLocality: 'Mutare', addressCountry: 'ZW' },
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.zentriksolutions.com/og-image.png',
+    width: 1200,
+    height: 630,
+  },
+  image: 'https://www.zentriksolutions.com/og-image.png',
+  description: 'Zimbabwe-based software company specialising in custom software development, WhatsApp chatbot development, and AI agents for businesses across Africa and globally.',
+  foundingDate: '2021',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Mutare',
+    addressRegion: 'Manicaland',
+    addressCountry: 'ZW',
+  },
+  areaServed: ['Zimbabwe', 'South Africa', 'Nigeria', 'United Kingdom', 'United States'],
   telephone: '+263773934610',
   email: 'info@zentriksolutions.com',
+  openingHours: 'Mo-Fr 08:00-17:00',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+263773934610',
+    contactType: 'customer service',
+    availableLanguage: 'English',
+    contactOption: 'TollFree',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    reviewCount: '3',
+    bestRating: '5',
+    worstRating: '1',
+  },
   review: [
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Chidi Okafor' }, reviewBody: 'Zentrik built our entire e-commerce platform in 6 weeks. Quality was exceptional, delivered on time. Sales doubled within a month.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Amara Dube' }, reviewBody: 'Their WhatsApp chatbot handles 200+ patient enquiries daily. We saved $3,000/month on support costs.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Michael Torres' }, reviewBody: 'The AI agent they built for our logistics routing cut manual dispatch time by 70%. Best tech investment we have made in years.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Chidi Okafor' }, reviewBody: 'Zentrik built our entire e-commerce platform in 6 weeks. Quality was exceptional, delivered on time. Sales doubled within a month.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Amara Dube' }, reviewBody: 'Their WhatsApp chatbot handles 200+ patient enquiries daily. We saved $3,000/month on support costs.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' } },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Michael Torres' }, reviewBody: 'The AI agent they built for our logistics routing cut manual dispatch time by 70%. Best tech investment we have made in years.', reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' } },
   ],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Zentrik Solutions',
+  url: 'https://www.zentriksolutions.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://www.zentriksolutions.com/?s={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
 }
 
 const services = [
@@ -103,6 +143,7 @@ export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section style={{ position: 'relative', background: '#000000', paddingTop: '96px', paddingBottom: '80px', overflow: 'hidden' }}>

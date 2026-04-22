@@ -5,6 +5,7 @@ import { Trash2, Mail, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Data Deletion Request',
   description: 'Request deletion of your personal data from Zentrik Solutions systems, including data collected via Facebook/Meta integrations.',
+  robots: { index: false, follow: false },
 }
 
 export default function DataDeletionPage() {

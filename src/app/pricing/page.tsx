@@ -14,6 +14,15 @@ export const metadata: Metadata = {
   },
 }
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.zentriksolutions.com' },
+    { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.zentriksolutions.com/pricing' },
+  ],
+}
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -21,7 +30,7 @@ const faqSchema = {
     { '@type': 'Question', name: 'How do I pay?', acceptedAnswer: { '@type': 'Answer', text: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' } },
     { '@type': 'Question', name: 'How long does a project take?', acceptedAnswer: { '@type': 'Answer', text: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' } },
     { '@type': 'Question', name: 'Do you offer payment plans?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' } },
-    { '@type': 'Question', name: 'What if I need something not listed here?', acceptedAnswer: { '@type': 'Answer', text: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours.no obligation.' } },
+    { '@type': 'Question', name: 'What if I need something not listed here?', acceptedAnswer: { '@type': 'Answer', text: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours, no obligation.' } },
     { '@type': 'Question', name: 'Do you work with clients outside Zimbabwe?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' } },
   ],
 }
@@ -106,7 +115,7 @@ const faqs = [
   { q: 'How do I pay?', a: 'We accept EcoCash, bank transfer (USD), and international card payments. A 50% deposit is required to start, with the balance on delivery.' },
   { q: 'How long does a project take?', a: 'Starter websites: 3–5 days. Professional packages: 1–2 weeks. Enterprise projects: 3–6 weeks depending on scope.' },
   { q: 'Do you offer payment plans?', a: 'Yes. For projects over $500 we can split into 3 monthly payments. Contact us to arrange a plan that works for you.' },
-  { q: 'What if I need something not listed here?', a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours.no obligation.' },
+  { q: 'What if I need something not listed here?', a: 'No problem. Send us a message describing your project and we will send you a custom quote within 24 hours, no obligation.' },
   { q: 'Do you work with clients outside Zimbabwe?', a: 'Absolutely. We serve clients across Africa and globally. We work in USD and communicate via WhatsApp, Zoom, or email.' },
 ]
 
@@ -114,6 +123,7 @@ export default function PricingPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Hero */}
       <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>

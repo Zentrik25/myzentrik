@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description: 'Terms of Service for Zentrik Solutions.',
+  robots: { index: false, follow: false },
 }
 
 const LAST_UPDATED = 'March 17, 2026'

@@ -23,6 +23,14 @@ const breadcrumbSchema = {
   ],
 }
 
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Zentrik Solutions',
+  url: 'https://www.zentriksolutions.com/contact',
+  description: 'Get a free quote for custom software, WhatsApp chatbots, and AI agents from Zentrik Solutions.',
+}
+
 const contactDetails = [
   { icon: Mail, label: 'Email', value: 'info@zentriksolutions.com', href: 'mailto:info@zentriksolutions.com' },
   { icon: Phone, label: 'WhatsApp / Phone', value: '+263 77 393 4610', href: 'https://wa.me/263773934610' },
@@ -34,6 +42,7 @@ export default function ContactPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }} />
 
       {/* Hero */}
       <section style={{ background: '#000000', paddingTop: '96px', paddingBottom: '56px' }}>

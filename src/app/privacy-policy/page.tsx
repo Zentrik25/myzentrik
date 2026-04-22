@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'Privacy Policy for Zentrik Solutions: how we collect, use, and protect your personal data.',
+  robots: { index: false, follow: false },
 }
 
 const LAST_UPDATED = 'March 17, 2026'
