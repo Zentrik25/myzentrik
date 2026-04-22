@@ -23,7 +23,7 @@ const organizationSchema = {
   url: 'https://www.zentriksolutions.com',
   logo: 'https://www.zentriksolutions.com/og-image.png',
   description: 'Zimbabwe-based software company specialising in custom software development, chatbot development, and AI agents.',
-  address: { '@type': 'PostalAddress', streetAddress: '6432 Chikanga 3', addressLocality: 'Mutare', addressCountry: 'ZW' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Mutare', addressCountry: 'ZW' },
   telephone: '+263773934610',
   email: 'info@zentriksolutions.com',
   review: [

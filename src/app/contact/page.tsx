@@ -26,7 +26,7 @@ const breadcrumbSchema = {
 const contactDetails = [
   { icon: Mail, label: 'Email', value: 'info@zentriksolutions.com', href: 'mailto:info@zentriksolutions.com' },
   { icon: Phone, label: 'WhatsApp / Phone', value: '+263 77 393 4610', href: 'https://wa.me/263773934610' },
-  { icon: MapPin, label: 'Location', value: '6432 Chikanga 3, Mutare, Zimbabwe', href: null },
+  { icon: MapPin, label: 'Location', value: 'Mutare, Zimbabwe', href: null },
   { icon: Clock, label: 'Response Time', value: 'Within 24 hours', href: null },
 ]
 
