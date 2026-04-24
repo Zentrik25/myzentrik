@@ -13,10 +13,10 @@ interface FadeInProps {
 export function FadeIn({ children, delay = 0, className, style }: FadeInProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
       style={style}
     >
@@ -30,10 +30,10 @@ export function FadeInStagger({ children, className, style }: Omit<FadeInProps, 
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
+      viewport={{ once: true, amount: 0.15 }}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.1 } },
+        visible: { transition: { staggerChildren: 0.13 } },
       }}
       className={className}
       style={style}
@@ -47,8 +47,8 @@ export function FadeInItem({ children, className, style }: Omit<FadeInProps, 'de
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
       }}
       className={className}
       style={style}

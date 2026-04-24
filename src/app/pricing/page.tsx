@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { CheckCircle2, XCircle, ArrowRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Pricing: Software, Chatbots & AI Agents | Zentrik Solutions',
+  title: 'Pricing: Software, Chatbots & AI Agents',
   description: 'Transparent, fixed pricing for custom software, WhatsApp chatbots, and AI agents. Starter from $150. No hidden fees. Free quote within 24 hours.',
   alternates: { canonical: 'https://www.zentriksolutions.com/pricing' },
   openGraph: {

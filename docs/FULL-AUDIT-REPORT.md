@@ -1,258 +1,285 @@
 # SEO Full Audit Report — zentriksolutions.com
-**Audit Date:** April 22, 2026
-**Audited by:** Claude Code SEO Audit (3-agent parallel analysis)
-**Pages crawled:** Homepage, /about, /services, /faq, /pricing, /work, /contact, /privacy-policy
-
----
-
-## Overall SEO Health Score: 47 / 100
-
-| Category | Weight | Score | Weighted |
-|----------|--------|-------|----------|
-| Technical SEO | 25% | 4/10 | 10.0 |
-| Content Quality | 25% | 4.5/10 | 11.3 |
-| On-Page SEO | 20% | 5/10 | 10.0 |
-| Schema / Structured Data | 10% | 6/10 | 6.0 |
-| Performance (CWV signals) | 10% | 7/10 | 7.0 |
-| Images | 5% | 1/10 | 0.5 |
-| AI Search Readiness | 5% | 4/10 | 2.0 |
-| **TOTAL** | **100%** | | **46.8 → 47/100** |
-
-> **Rating: Needs Work.** The site has clean architecture and a functional trust framework but is held back by a critical rendering issue that hides all metadata from crawlers, zero images, no analytics, no team presence, and no fresh content.
+**Audit Date:** 22 April 2026  
+**Auditor:** Claude Code (automated crawl + static analysis)  
+**Scope:** www.zentriksolutions.com — 7 core pages + blog
 
 ---
 
 ## Executive Summary
 
-**Business detected:** Software / AI / Chatbot development agency — Zimbabwe-based, globally targeting (Africa, UK, USA).
+**Overall SEO Health Score: 63 / 100**
 
-**Top 5 Critical Issues:**
-1. **Metadata not in server-rendered HTML** — title, meta description, canonical, and all OG/Twitter tags appear to be missing from the initial HTML response, likely due to missing `metadata` exports in Next.js page files. This blocks social sharing previews (WhatsApp, Facebook, LinkedIn) and degrades crawler indexability.
-2. **Zero images on any page** — no `<img>` tags on the entire site; emoji and SVGs only. Disqualifies the site from Google Discover eligibility and produces blank/generic social previews.
-3. **No analytics installed** — the site has no GA4, Vercel Analytics, Plausible, or any tracking. Facebook domain is verified but Pixel is inactive.
-4. **No named team members anywhere** — zero individual names, photos, or bios on the site. The single largest E-E-A-T deficiency for a services business.
-5. **No blog / fresh content** — Google has no recurring reason to crawl; the domain accrues no topical authority.
+| Category | Weight | Score |
+|----------|--------|-------|
+| Technical SEO | 25% | 72/100 |
+| Content Quality | 25% | 48/100 |
+| On-Page SEO | 20% | 82/100 |
+| Schema / Structured Data | 10% | 78/100 |
+| Performance | 10% | 65/100 |
+| Images | 5% | 10/100 |
+| AI Search Readiness | 5% | 42/100 |
+| **Weighted Total** | | **63/100** |
 
-**Top 5 Quick Wins:**
-1. Add `export const metadata` to every `page.tsx` — fixes title, description, OG tags, Twitter cards, canonical in one pass.
-2. Install Vercel Analytics (zero-config, one line) — immediate observability.
-3. Add `sameAs` array to Organization JSON-LD — Knowledge Panel signal.
-4. Fix FAQ typo on /pricing: `"hours.no"` → `"hours — no"`.
-5. Add `/work` to `sitemap.xml`.
+**Business type detected:** B2B Software Agency (Africa/Zimbabwe focus)
+
+### Top 5 Critical Issues
+1. Non-www → www redirect returns **307 Temporary** instead of 308/301 Permanent — PageRank not fully consolidating
+2. **Zero images** on all pages — complete absence from image search; no visual content signals
+3. **No blog content** — empty blog suppresses topical authority; site has no indexable long-form content
+4. **Missing security headers** — no X-Content-Type-Options, X-Frame-Options, Referrer-Policy, or Permissions-Policy
+5. **Duplicate title suffix** (now fixed in code, needs deploy) — pricing, FAQ, blog titles had double "| Zentrik Solutions"
+
+### Top 5 Quick Wins
+1. Deploy title fixes (already committed) — removes double suffix from 3 pages
+2. Add 5+ blog articles on core topics (WhatsApp chatbots, AI agents, Zimbabwe software) — activates content engine
+3. Set non-www → www redirect to permanent (308) in Vercel domain settings
+4. Add `next/image`-powered screenshots for the 2 portfolio projects in `/work`
+5. Add `X-Content-Type-Options: nosniff` and `Referrer-Policy` via `next.config.ts` headers
 
 ---
 
-## Section 1: Technical SEO
+## 1. Technical SEO
 
-### Rendering & Metadata Delivery — CRITICAL
+### 1.1 Crawlability
+| Check | Status | Notes |
+|-------|--------|-------|
+| robots.txt present | ✅ | `Allow: /`, `Disallow: /api/`, sitemap pointer |
+| Sitemap present | ✅ | 7 URLs, all with lastModified (build time) |
+| Sitemap submitted to GSC | ❓ | Cannot verify — do manually |
+| All pages crawlable | ✅ | No blocks on commercial pages |
+| Blog noindexed | ✅ | `noindex, follow` — correct until content exists |
 
-The most impactful finding of this audit: the entire page `<head>` (title, meta description, canonical, all OG/Twitter tags) is **not present in the initial server-rendered HTML**. The site uses Next.js 15 App Router but appears to be missing `metadata` exports on page files — or has a deployment misconfiguration.
+### 1.2 Indexability
+All 7 commercial pages return `robots: index, follow`. No unintended noindex found.
 
-**Impact:**
-- WhatsApp, Telegram, Slack, Facebook, LinkedIn link previews show blank cards
-- Some search crawlers (and all social crawlers) cannot execute JavaScript
-- Google may index stale/empty page titles
+| Page | Title Tag | Meta Description | Canonical | Robots |
+|------|-----------|-----------------|-----------|--------|
+| / | ✅ 56 chars | ✅ | ✅ www | index, follow |
+| /services | ✅ 79 chars | ✅ | ✅ www | index, follow |
+| /pricing | ✅ 60 chars (fixed) | ✅ | ✅ www | index, follow |
+| /faq | ✅ 55 chars (fixed) | ✅ | ✅ www | index, follow |
+| /about | ✅ 75 chars | ✅ | ✅ www | index, follow |
+| /work | ✅ 65 chars | ✅ | ✅ www | index, follow |
+| /contact | ✅ 72 chars | ✅ | ✅ www | index, follow |
+| /blog | noindex ✅ | ✅ | ✅ www | noindex, follow |
 
-**Fix:** In every `page.tsx` file, add:
-```ts
-export const metadata: Metadata = {
-  title: 'Page Title | Zentrik Solutions',
-  description: '...',
-  canonical: 'https://www.zentriksolutions.com/...',
-  openGraph: {
-    title: '...',
-    description: '...',
-    url: '...',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  twitter: { card: 'summary_large_image', title: '...', description: '...' },
-}
+### 1.3 Redirects
+| Check | Status | Detail |
+|-------|--------|--------|
+| Non-www → www | ⚠️ | Returns **307 Temporary** Redirect. `next.config.ts` has `permanent: true` (should produce 308) but Vercel may be handling this at domain level with 307. Fix in Vercel dashboard: set www as primary domain. |
+| HTTPS enforced | ✅ | HSTS header present: `max-age=63072000` |
+| Redirect chains | ✅ | No chains detected |
+
+### 1.4 HTTP Headers
+```
+Server:                    Vercel
+Strict-Transport-Security: max-age=63072000 ✅
+X-Content-Type-Options:    MISSING ❌
+X-Frame-Options:           MISSING ❌
+Referrer-Policy:           MISSING ❌
+Permissions-Policy:        MISSING ❌
+Content-Security-Policy:   MISSING ❌
+Access-Control-Allow-Origin: * ⚠️ (overly permissive for content site)
 ```
 
-In `app/layout.tsx`, add site-wide defaults via `metadata` or `generateMetadata`.
+Fix: add headers in `next.config.ts` under `async headers()`.
 
-### robots.txt — GOOD
+### 1.5 Sitemap Analysis
+- 7 URLs present — matches 7 commercial pages ✅
+- `/blog` correctly excluded ✅
+- `lastModified` uses build timestamp (updates on every deploy) — acceptable
+- Missing: `/blog` will need adding once noindex is removed
+- Priority scores: reasonable (1.0 → 0.7)
 
-- Returns 200, permits all crawlers, sitemap declared ✅
-- Minor: `Host:` directive is Yandex-only (harmless, remove to clean up)
+### 1.6 Core Web Vitals
+Live CWV data not available without Lighthouse/PageSpeed. Indicators:
+- Pages served from Vercel edge cache (`X-Vercel-Cache: HIT`) ✅
+- Next.js prerendering active (`X-Nextjs-Prerender: 1`) ✅
+- Homepage HTML: **154KB** — large for a text+icon page; consider splitting JS chunks
+- No render-blocking resources detected in head beyond fonts
 
-### sitemap.xml — MOSTLY GOOD
-
-- Valid XML, 9 URLs, lastmod dates present ✅
-- `/work` page is **missing** — add it
-- Legal pages (/privacy-policy, /terms-of-service, /data-deletion) waste crawl budget — add `noindex` to those pages and remove from sitemap
-- `lastmod` dates are hardcoded (all `2026-03-17`) — derive from actual content timestamps
-
-### HTTPS — PASS
-
-All internal links use HTTPS. No mixed content detected.
-
-### Security Headers
-
-Not directly verifiable via HTML fetch. Verify via [securityheaders.com](https://securityheaders.com/?q=zentriksolutions.com):
-- Should have: HSTS, X-Frame-Options (or CSP frame-ancestors), X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+**Action:** Run PageSpeed Insights on all 7 pages and target LCP < 2.5s, CLS < 0.1.
 
 ---
 
-## Section 2: Content Quality & E-E-A-T
+## 2. On-Page SEO
 
-### E-E-A-T Scorecard
+### 2.1 Title Tags
 
-| Dimension | Score | Key Gap |
-|-----------|-------|---------|
-| Experience | 3/10 | No named practitioners; 2 thin case studies |
-| Expertise | 5/10 | Good tech stack transparency; no authored content |
-| Authoritativeness | 3/10 | No press, no awards, no external validation |
-| Trustworthiness | 7/10 | Privacy policy, HTTPS, contact info present |
-| **Overall E-E-A-T** | **4.5/10** | Structurally sound but critically faceless |
+| Page | Live Title | Length | Issue |
+|------|-----------|--------|-------|
+| / | Zentrik Solutions: Software, Chatbots & AI Agents \| Zimbabwe | 60 | ✅ |
+| /services | Software, Chatbot & AI Agent Development Services \| Africa \| Zentrik Solutions | 79 | ⚠️ Long; two pipes |
+| /pricing | Pricing: Software, Chatbots & AI Agents \| Zentrik Solutions | 60 | ✅ (fixed) |
+| /faq | FAQ: Software, Chatbots & AI Agents \| Zentrik Solutions | 55 | ✅ (fixed) |
+| /about | About Zentrik Solutions: Zimbabwe Software & AI Company \| Zentrik Solutions | 75 | ⚠️ Brand in both title and template |
+| /work | Our Work: Projects Built by Zentrik Solutions \| Zentrik Solutions | 65 | ⚠️ Brand twice |
+| /contact | Contact Zentrik Solutions: Get a Free Project Quote \| Zentrik Solutions | 72 | ⚠️ Brand twice |
 
-### Critical: No Named Team Members
+**Fixed in this audit:** `/pricing`, `/faq`, `/blog` — all had `| Zentrik Solutions` in the page title string AND the layout template was appending it again, producing double brand suffix.
 
-Zero individual names appear anywhere on the site. Google's Quality Rater Guidelines penalise pages where no human is accountable for content. For a business selling $800–$1,500+ software projects, this creates trust friction with both algorithms and prospects.
+### 2.2 Meta Descriptions
+All 7 pages have unique, descriptive meta descriptions. No duplicates detected.
 
-**Fix:** Add a Team section to `/about` with at minimum the founder's name, photo, role, and LinkedIn URL.
+### 2.3 Heading Structure
+| Page | H1 Count | H1 Quality | H2/H3 Hierarchy |
+|------|----------|-----------|-----------------|
+| / | 1 ✅ | "Replace your manual work / with AI that never sleeps." — punchy ✅ | Services, Built Different, Process, Work, Testimonials ✅ |
+| /services | 1 ✅ | Verified in source | 3 service sections ✅ |
+| /pricing | 1 ✅ | "Simple, Fixed Pricing." ✅ | Plans + FAQ ✅ |
+| /faq | 1 ✅ | "Frequently Asked Questions." ✅ | 12 Q&A as H2 ✅ |
+| /about | 1 ✅ | "We Are Zentrik Solutions." ✅ | Values, Process, Tech, CTA ✅ |
+| /work | 1 ✅ | "Our Work." ✅ | Portfolio, CTA ✅ |
+| /contact | 1 ✅ | "Contact Zentrik Solutions." ✅ | Get In Touch, Contact Info, Form ✅ |
 
-### Content Volume
+### 2.4 Internal Linking
 
-| Page | Word Count | Assessment |
-|------|-----------|------------|
-| Homepage | ~2,800 | Good |
-| /services | ~1,300 | Adequate |
-| /faq | ~1,300 | Good |
-| /pricing | ~1,350 | Good |
-| /about | ~850 | Thin for an About page |
-| /contact | ~850 | Acceptable |
-| /work | ~350 | THIN |
-| Case studies | ~115 each | CRITICAL — thin content |
+**Link matrix (commercial pages only):**
+| From \ To | /services | /pricing | /faq | /about | /work | /contact |
+|-----------|-----------|---------|------|--------|-------|---------|
+| / | ✅ nav+body | ⚠️ nav only | ⚠️ nav only | ✅ nav | ✅ nav+body | ✅ CTA |
+| /services | — | ✅ CTA | — | — | — | ✅ CTA |
+| /pricing | ✅ body | — | ✅ body | — | — | ✅ CTA |
+| /faq | ✅ body | ✅ body | — | — | — | ✅ CTA |
+| /about | ✅ nav | — | ✅ body | — | ✅ body | ✅ CTA |
+| /work | ✅ body | — | — | — | — | ✅ CTA |
+| /contact | — | — | — | — | — | — |
 
-### No Blog / Fresh Content
-
-No blog section exists. Google has no recurring reason to crawl. No topical authority beyond static service pages. The domain ceiling on organic performance is set primarily by this gap.
-
-### Strengths
-
-- Clear, differentiated UVP: "Enterprise-grade code at African prices"
-- Good semantic tech stack coverage on /services (Next.js, GPT-4, Claude, LangChain, etc.)
-- Clean, accessible reading level — appropriate for SME audience
-- Strong FAQ section (14 items with direct answers)
-- Consistent CTAs throughout
-
----
-
-## Section 3: On-Page SEO
-
-### Title Tags
-
-| Page | Title | Issues |
-|------|-------|--------|
-| Homepage | Not in initial HTML | CRITICAL |
-| /services | "Software, Chatbot & AI Agent Dev Services \| Zentrik Solutions" (63 chars) | HIGH — 3 chars over limit |
-| /faq | "Frequently Asked Questions: Zentrik Solutions Zimbabwe \| Zentrik Solutions" | HIGH — brand duplicated |
-| /about | "About Zentrik Solutions: Zimbabwe Software & AI Company" | PASS |
-| /contact | "Contact Zentrik Solutions: Get a Free Project Quote \| Zentrik Solutions" | PASS |
-
-### H1 Tags
-
-| Page | H1 | Keyword-Aligned? |
-|------|----|-----------------|
-| Homepage | "Replace your manual work with AI that never sleeps" | No — compelling but no keywords |
-| /services | "Everything You Need to Grow Digitally" | No |
-| /pricing | "Simple, Fixed Pricing" | No |
-| /work | "Our Work." | No |
-
-Most H1s prioritise brand voice over SEO signalling. The homepage H1 misses "custom software development Zimbabwe" entirely.
-
-### Meta Descriptions
-
-Strong on inner pages (/services, /contact, /about). Homepage meta not confirmed in server-rendered HTML.
-
-### Internal Linking
-
-- All main pages linked from nav/footer ✅
-- No contextual inline links within body copy ⚠️
-- /work page does not link to /services or /pricing ⚠️
-- No breadcrumb navigation on most pages ⚠️
+**Gap:** Homepage body does not link to `/pricing` or `/faq` contextually (only nav). Adding 1-2 contextual body links would strengthen these pages.
 
 ---
 
-## Section 4: Schema / Structured Data
+## 3. Content Quality & E-E-A-T
 
-### Inventory
+### 3.1 E-E-A-T Assessment
 
-| Page | Schemas Present |
-|------|----------------|
-| Homepage | `Organization` |
-| /about | `BreadcrumbList` |
-| /contact | `BreadcrumbList` |
-| /services | `ItemList > Service` |
-| /faq | `FAQPage`, `BreadcrumbList` |
-| /pricing | `FAQPage` |
+| Signal | Status | Notes |
+|--------|--------|-------|
+| Named authors/team | ❌ | No team bios, no names, no LinkedIn profiles |
+| Experience signals | ⚠️ | "Founded 2021", "50+ projects" — not verifiable |
+| Expertise signals | ⚠️ | Technology stack listed; no certifications or credentials |
+| Authoritativeness | ❌ | No press mentions, no third-party reviews linked, no Google Business Profile |
+| Trustworthiness | ✅ | Physical address (Mutare, ZW), phone, email, WhatsApp present |
+| Geographic accuracy | ✅ | Consistently Mutare, Zimbabwe (no Harare references) |
 
-### Issues
+### 3.2 Content Depth
+| Page | Approx. Words | Assessment |
+|------|------------|-----------|
+| / | ~800 | Adequate for homepage |
+| /services | ~1000 | Adequate — 3 service sections |
+| /pricing | ~600 | Adequate — pricing tables speak for themselves |
+| /faq | ~1200 | Strong — 12 detailed Q&A |
+| /about | ~1300 | Adequate |
+| /work | ~400 | Thin — only 2 projects |
+| /contact | ~300 | Acceptable for contact page |
+| /blog | 0 | Empty — major gap |
 
-| Severity | Issue |
-|----------|-------|
-| HIGH | `Organization.logo` points to the OG image — must be a separate dedicated logo file |
-| HIGH | `sameAs` array completely absent from Organization — critical for Knowledge Panel |
-| HIGH | No `LocalBusiness` schema despite physical address in Mutare |
-| HIGH | No `WebSite` schema with `SearchAction` on homepage |
-| MEDIUM | `Organization.address` incomplete — missing streetAddress and postalCode |
-| MEDIUM | No `aggregateRating` on Organization — star snippets in SERPs unavailable |
-| MEDIUM | `contactPoint` absent from Organization |
-| MEDIUM | `Service` items on /services missing `url` and `offers` |
-| MEDIUM | `/about` breadcrumb schema exists but no visible breadcrumb HTML |
-| MEDIUM | No BreadcrumbList on /services or /pricing |
-| MEDIUM | `/pricing` FAQ typo: `"hours.no"` — missing space before "no" |
-| MEDIUM | Same FAQ questions duplicated across /faq and /pricing (suppress rich results) |
-| LOW | `review` items missing `worstRating: "1"` on Rating objects |
-| LOW | No `AboutPage` or `ContactPage` types on respective pages |
-
----
-
-## Section 5: Performance (CWV Signals)
-
-### Strengths
-- All scripts are `async` — no render-blocking JS ✅
-- Single CSS bundle — no stylesheet stacking ✅
-- Self-hosted WOFF2 font with preload hint ✅
-- No third-party scripts — zero external performance drag ✅
-
-### Issues
-
-| Severity | Issue |
-|----------|-------|
-| CRITICAL | No images at all → no LCP element → unknown LCP performance |
-| HIGH | No analytics → zero visibility into real-world CWV from CrUX |
-| MEDIUM | Font `font-display` strategy unverified — may cause FOIT if not set to `swap` |
-| HIGH | Facebook Pixel inactive despite domain verification — retargeting non-functional |
+### 3.3 Trust Signals
+- ✅ Company address (Mutare, Zimbabwe)
+- ✅ Phone number (+263 77 393 4610)
+- ✅ Email (info@zentriksolutions.com)
+- ✅ WhatsApp contact
+- ✅ Privacy Policy, Terms of Service, Data Deletion pages linked
+- ❌ No Google Business Profile (local SEO gap)
+- ❌ No third-party review platform links (Clutch, Google Maps, etc.)
+- ❌ Testimonials lack full name + company attribution (reduces credibility signal)
+- ❌ No press or media mentions
 
 ---
 
-## Section 6: Images
+## 4. Schema / Structured Data
 
-| Severity | Issue |
-|----------|-------|
-| CRITICAL | Zero `<img>` tags on any page — entirely emoji/SVG |
-| CRITICAL | No hero image → Google Discover requires ≥1200px image on page to show cards |
-| HIGH | `og-image.png` serves as both social share image AND Organization logo — separate these |
-| HIGH | All pages share the same static OG image — per-page images dramatically improve CTR |
-| MEDIUM | `twitter:image` uses a dynamic Next.js route `/opengraph-image` while `og:image` uses static PNG — verify consistency |
-| MEDIUM | No `next/image` usage for WebP conversion, responsive srcset, lazy loading |
+### 4.1 Schema Coverage
+| Page | Schemas Present | Status |
+|------|---------------|--------|
+| / | Organization + LocalBusiness, WebSite (SearchAction) | ✅ |
+| /services | ItemList (3 services), BreadcrumbList | ⚠️ Missing per-service `ProfessionalService` |
+| /pricing | ItemList (Product + Offer ×3), FAQPage (5 Qs), BreadcrumbList | ✅ |
+| /faq | FAQPage (12 Qs), BreadcrumbList | ✅ |
+| /about | AboutPage, BreadcrumbList | ✅ |
+| /work | ItemList (2 creative works), BreadcrumbList | ✅ |
+| /contact | LocalBusiness, ContactPage, BreadcrumbList | ✅ |
+| /blog | None (noindex) | ✅ correct |
+
+### 4.2 Schema Quality Issues
+- **WebSite SearchAction** on homepage points to `/?s={search_term_string}` — the site has no search functionality; this will not validate against real behavior. Either remove or implement site search.
+- **LocalBusiness** on homepage missing `openingHoursSpecification` (present on /contact, missing on homepage).
+- **Work page ItemList** correctly lists 2 portfolio items — will improve as more projects are added.
+- All schemas parsed without errors ✅
 
 ---
 
-## Section 7: AI Search Readiness
+## 5. Images
 
-| Criterion | Status |
-|-----------|--------|
-| FAQ schema markup | ✅ Present |
-| Direct answer format in FAQs | ✅ Good |
-| Definitions (what is an AI agent?) | ✅ Present |
-| Structured Q&A covering "how much / how long" | ✅ Present |
-| Named expert authors | ❌ None |
-| Factual claims with cited sources | ❌ None |
-| Long-form pillar content | ❌ None |
-| Third-party citation signals | ❌ None |
-| "Best X in Zimbabwe" type content | ❌ None |
+### 5.1 Image Audit
+**Zero `<img>` tags found on any page.** The site uses CSS gradients, SVG icons, and Lucide React icons exclusively. No `next/image` components in use on public pages.
 
-**Assessment (4/10):** The FAQ structure is AI-citation-ready. Everything else is not. The site will not be cited by AI Overviews (Google SGE) or ChatGPT for anything beyond direct brand queries. Competitors publishing "How to build a WhatsApp chatbot for your business in Zimbabwe" will be cited instead.
+**Impact:**
+- Invisible to Google Image Search
+- No visual content signals for Google Discover
+- WhatsApp link previews rely entirely on the dynamic `/opengraph-image` route (confirmed working)
+- Portfolio page shows project iframes + external links instead of screenshots
+
+### 5.2 OG Image
+- Dynamic `/opengraph-image` route confirmed rendering ✅
+- Used consistently across all 7 pages ✅
+- Generic (same image for all pages) — no per-page OG images
+
+---
+
+## 6. Performance
+
+Live CWV not measured. Proxy indicators:
+
+| Signal | Value | Assessment |
+|--------|-------|-----------|
+| Vercel edge cache | HIT | ✅ Fast delivery |
+| Next.js prerender | Active | ✅ SSR |
+| Homepage HTML size | 154KB | ⚠️ Large |
+| TTFB (estimated) | < 200ms | ✅ Edge cached |
+| Images | 0 | ✅ No image LCP issues |
+| Web fonts | Inter via Google Fonts | ⚠️ External font may delay FCP |
+
+---
+
+## 7. AI Search Readiness
+
+| Signal | Status |
+|--------|--------|
+| Clear service descriptions | ✅ |
+| Pricing publicly listed | ✅ |
+| Contact info structured | ✅ |
+| Physical location | ✅ |
+| FAQPage schema (12 Qs) | ✅ |
+| Topical authority articles | ❌ |
+| Named experts/authors | ❌ |
+| Third-party citations | ❌ |
+| Blog content | ❌ |
+
+The site can be cited for factual queries ("WhatsApp chatbot developer Zimbabwe", "custom software Mutare") but lacks depth for "how to" or "best practice" queries due to empty blog.
+
+---
+
+## 8. Blog / Content Engine
+
+- `/blog` exists with correct noindex ✅
+- Blog scaffold ready: `Post` type defined, slug route `[slug]/page.tsx` complete ✅
+- Zero articles published
+- No sitemap entry (will auto-add when articles go live) ✅
+- **Gap:** Without articles, the site cannot rank for informational queries or build topical authority
+
+---
+
+## Appendix: Pages Crawled
+
+| URL | HTTP Status | Indexed | Schema Count |
+|-----|------------|---------|-------------|
+| https://www.zentriksolutions.com/ | 200 | Yes | 2 |
+| https://www.zentriksolutions.com/services | 200 | Yes | 2 |
+| https://www.zentriksolutions.com/pricing | 200 | Yes | 3 |
+| https://www.zentriksolutions.com/faq | 200 | Yes | 2 |
+| https://www.zentriksolutions.com/about | 200 | Yes | 2 |
+| https://www.zentriksolutions.com/work | 200 | Yes | 2 |
+| https://www.zentriksolutions.com/contact | 200 | Yes | 3 |
+| https://www.zentriksolutions.com/blog | 200 | No (noindex) | 0 |
+| https://zentriksolutions.com/ (non-www) | 307 → www | — | — |

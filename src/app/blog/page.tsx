@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react'
 // noindex until the first real article is published.
 // Remove this robots block and add /blog to sitemap.ts when content goes live.
 export const metadata: Metadata = {
-  title: 'Blog: Software, AI & Business Insights | Zentrik Solutions',
+  title: 'Blog: Software, AI & Business Insights',
   description: 'Practical guides, case studies, and insights on custom software development, WhatsApp chatbots, and AI agents for African businesses.',
   alternates: { canonical: 'https://www.zentriksolutions.com/blog' },
   robots: { index: false, follow: true },

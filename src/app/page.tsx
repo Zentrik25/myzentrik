@@ -49,7 +49,14 @@ const organizationSchema = {
   areaServed: ['Zimbabwe', 'South Africa', 'Nigeria', 'United Kingdom', 'United States'],
   telephone: '+263773934610',
   email: 'info@zentriksolutions.com',
-  openingHours: 'Mo-Fr 08:00-17:00',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
+    },
+  ],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+263773934610',
@@ -68,11 +75,6 @@ const websiteSchema = {
   '@type': 'WebSite',
   name: 'Zentrik Solutions',
   url: 'https://www.zentriksolutions.com',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://www.zentriksolutions.com/?s={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
 }
 
 const services = [

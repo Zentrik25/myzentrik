@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, MessageSquare } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'FAQ: Software, Chatbots & AI Agents | Zentrik Solutions',
+  title: 'FAQ: Software, Chatbots & AI Agents',
   description: 'Answers to common questions about our software development, WhatsApp chatbot, and AI agent services. Pricing, timelines, payments, and more.',
   alternates: { canonical: 'https://www.zentriksolutions.com/faq' },
   openGraph: {
