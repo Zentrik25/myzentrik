@@ -34,7 +34,7 @@
 2. Add 5+ blog articles on core topics (WhatsApp chatbots, AI agents, Zimbabwe software) — activates content engine
 3. Set non-www → www redirect to permanent (308) in Vercel domain settings
 4. Add `next/image`-powered screenshots for the 2 portfolio projects in `/work`
-5. Add `X-Content-Type-Options: nosniff` and `Referrer-Policy` via `next.config.ts` headers
+5. Add `X-Content-Type-Options: nosniff` and `Referrer-Policy` via `next.config.ts` headerssss
 
 ---
 
